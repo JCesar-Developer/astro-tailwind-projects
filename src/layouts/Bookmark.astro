@@ -1,0 +1,59 @@
+---
+import Header from '../components/bookmark/Header.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Bookmark website developed with Astro + Tailwind CSS" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+
+	<body id="bookmark">
+    <Header />
+
+    <slot />
+	</body>
+
+</html>
+
+<style is:global>
+:root {
+  --softBlue: hsl(231, 69%, 60%);
+  --softRed: hsl(0, 94%, 66%);
+  --grayishBlue: hsl(229, 8%, 60%);
+  --veryDarkBlue: hsl(229, 31%, 21%);
+}
+
+.b1 { border: solid 1px red; }
+.b2 { border: solid 1px blue; }
+.b3 { border: solid 1px green; }
+.b4 { border: solid 1px yellow; }
+.b5 { border: solid 1px orange; }
+.b5 { border: solid 1px purple; }
+
+#bookmark * {
+  font-family: 'Rubik', sans-serif;
+}
+
+#bookmark .container-lg {
+  @apply container mx-auto px-6 max-w-[1440px];
+}
+
+
+</style>

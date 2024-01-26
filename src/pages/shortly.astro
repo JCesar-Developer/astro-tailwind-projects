@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Shortly.astro";
+import Button from "../components/shortly/Button.astro";
+import InputLink from '../components/shortly/Input-link.astro';
+import OutputLink from "../components/shortly/Output-link.astro";
+import FeatureCard from "../components/shortly/Feature-card.astro";
+
+const shortly_url = import.meta.env.SHORTLY;
+const boostBg = `url(${shortly_url}/bg-boost-desktop.svg)`
+---
+<Layout title="Shortly app">
+
+  <!-- Hero -->
+  <section id="hero" class="mt-10 md:mt-20 container-md flex flex-col space-y-10 items-center md:flex-row md:justify-between md:space-y-0">
+    <!-- Image -->
+    <figure class="md:order-1 lg:max-w-lg">
+      <img 
+        src={ `${ shortly_url }/illustration-working.svg` } 
+        alt="Ilustration of a women working in a desktop"
+      >
+    </figure>
+    
+    <!-- Branding -->
+    <article class="order-2 md:order-none lg:max-w-lg">
+      <h1 class="text-center text-5xl md:text-left lg:text-6xl font-bold">
+        More than just shorter links
+      </h1>
+      <p class="mt-5 lg:mt-8 text-xl lg:text-2xl text-center text-[--grayishViolet] md:text-left">
+        Build your brand's recognition and get detailed insights on how your links are performing.
+      </p>
+      <div class="mt-5 w-fit mx-auto md:mx-0">
+        <Button text="Get Started" _class="text-2xl lg:text-3xl">
+      </div>
+    </article>
+  </section>
+
+  <!-- Input & Outputs -->
+  <section class="bg-gray-200 mt-52 relative">
+    <div class="mx-auto px-6 md:px-0 md:max-w-xl lg:max-w-4xl space-y-6 relative -top-16">
+
+      <!-- Input-link-->
+      <InputLink />
+
+      <!-- Output-links -->
+      <OutputLink 
+        inputLink="https://frontendmentor.io"
+        outputLink="https://rel.ink/k4IKyk"
+      />
+      <OutputLink         
+        inputLink="https://twitter.com/frontendmentor"
+        outputLink="https://rel.ink/gxOXp9"
+        btnColor="purple" 
+      />
+      <OutputLink         
+        inputLink="https://linkedin.com/frontend-mentor"
+        outputLink="https://rel.ink/gob3X9"
+      />
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-gray-200 pt-12 pb-28">
+    <div class="container-md">
+      
+      <header class="max-w-xs md:max-w-sm mx-auto text-center">
+        <h2 class="font-bold text-2xl lg:text-3xl">
+          Advanced Statistics
+        </h2>
+        <p class="mt-3 md:mt-5 text-gray-400 text-xs md:text-base">
+          Track how your links are performing across the web with our advanced statistics dashboard.
+        </p>
+      </header>
+
+      <!-- Features-grid -->
+      <section class="
+        relative mt-16 md:mt-20 flex flex-col gap-20 max-w-sm mx-auto 
+        md:flex-row md:max-w-none md:gap-6 
+        md:[&>:nth-child(3)]:mt-8 md:[&>:nth-child(4)]:mt-16
+        "
+      >
+        <div id="deco" class="
+          absolute bg-[--cyan]
+          h-full w-2 left-1/2 top-0 -translate-x-1/2
+          md:h-3 md:w-full md:mt-[100px]"
+        ></div>
+        <FeatureCard 
+          imgSrc={ `${ shortly_url }/icon-brand-recognition.svg` }
+          imgAlt="Brand recognition icon"
+          title="Brand Recognition"
+          description="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content."
+        />
+        <FeatureCard 
+          imgSrc={ `${ shortly_url }/icon-detailed-records.svg` }
+          imgAlt="Detailed records icon"
+          title="Detailed Records"
+          description="Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
+        />
+        <FeatureCard 
+          imgSrc={ `${ shortly_url }/icon-fully-customizable.svg` }
+          imgAlt="Fully customizable icon"
+          title="Fully Customizable"
+          description="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+        />
+      </section>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="bg-[--darkViolet] py-24">
+    <div class="flex flex-col items-center w-fit mx-auto space-y-5">
+      <h1 class="text-4xl font-bold text-white">
+        Boost your links today
+      </h1>
+      <Button 
+        text="Get Started"
+        _class="text-md"
+      />
+    </div>
+  </section>
+</Layout>
+
+<style define:vars={{ boostBg }}>
+#cta {
+  background-image: var(--boostBg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

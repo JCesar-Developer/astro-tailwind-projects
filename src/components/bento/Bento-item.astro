@@ -1,0 +1,67 @@
+---
+import Profile from './Profile.astro';
+import { type BentoQuote } from '../../data/bento.data';
+
+type TextColor = 'white' | 'black';
+
+interface Props {
+  quote: BentoQuote;
+  bgColor?: string;
+  textColor?: TextColor;
+  clamp?:boolean;
+  bgImage?: string;
+}
+
+const { 
+  quote, 
+  bgColor = 'bg-blue-200', 
+  textColor = 'black',
+  clamp = false,
+  bgImage,
+} = Astro.props;
+---
+
+<article class:list={[
+  "relative rounded-xl w-full h-full p-10",
+  bgColor,
+
+]}>
+  {
+    bgImage && (
+      <div class="absolute top-0 right-10 w-44">
+        <img src={ bgImage } alt={ bgImage } class="object-cover w-full h-full" />
+      </div>
+    )
+  }
+
+  <!-- article-content -->
+  <div class="relative">
+    <Profile author={ quote.author } textColor={ textColor } />
+
+    <!-- quote -->
+    <h3 class:list={[
+      'text-xl mt-5',
+      {
+        'text-white': textColor === 'white',
+        'text-black': textColor === 'black',
+      }
+    ]}>
+      { quote.heading }
+    </h3>
+
+    <!-- quote-content -->
+    <p class:list={[
+      'opacity-50 mt-6 line-clamp-3',
+      {
+        'text-white': textColor === 'white',
+        'text-black': textColor === 'black',
+      },
+      {
+        'md:line-clamp-5': clamp,
+        'md:line-clamp-none': !clamp,
+      },
+    ]}>
+      "{ quote.content }"
+    </p>
+  </div>
+</article>

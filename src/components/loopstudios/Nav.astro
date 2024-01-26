@@ -1,0 +1,52 @@
+---
+import HamburgerBtn from '../Hamburger-btn.astro';
+
+interface Props {
+  items: Items[];
+}
+
+interface Items {
+  name: string;
+  link: string;
+}
+
+const { items } = Astro.props
+---
+
+<input type="checkbox" id="nav-toggle" class="peer hidden">
+
+<!-- hamburguer-btn -->
+<div class="md:hidden z-20">
+  <HamburgerBtn color='white' />
+</div>
+
+<!-- desktop-navigation -->
+<nav aria-label="desktop-navigation" class="hidden md:flex md:justify-center md:items-center">
+  <ul class="md:flex md:flex-row md:gap-8 md:items-center">
+    {
+      items && items.map( item => 
+      <li class="alata flex flex-col items-center group font-semibold">
+        <a href={ item.link }>
+          { item.name }
+        </a>
+        <div class="w-7 border-b border-white opacity-0 group-hover:opacity-100 duration-200"></div>
+      </li>
+      )
+    }
+  </ul>
+</nav>
+
+<!-- mobile-navigation -->
+<nav id="mobile-navigation" aria-label="mobile-navigation" class="-left-full peer-checked:block absolute bg-black top-0 duration-300 peer-checked:left-0 w-full h-screen">
+  <ul class="mt-40 ml-10 space-y-2">
+    {
+      items && items.map( item => 
+      <li class="josefin uppercase text-lg hover:text-pink-500 font-light">
+        <a href={ item.link }>
+          { item.name }
+        </a>
+      </li>
+      )
+    }
+  </ul>
+</nav>

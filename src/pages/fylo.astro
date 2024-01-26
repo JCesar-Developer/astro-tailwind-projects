@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Fylo.astro';
+import ActionButton from '../components/fylo/Action-button.astro';
+
+import FeatureCard from '../components/fylo/Feature-card.astro';
+import { Features } from '../data/fylo.data';
+
+import TestimonialCard from '../components/fylo/Testimonial-card.astro';
+import { Testimonials } from '../data/fylo.data';
+
+import CTACard from '../components/fylo/CTA-card.astro';
+
+const fylo_url = import.meta.env.FYLO;
+const lightCurvyBg  = `url(${ fylo_url }/bg-curvy-light-mode.svg)`;
+const darkCurvyBg  = `url(${ fylo_url }/bg-curvy-dark-mode.svg)`;
+---
+
+<Layout title='Fylo Website'>
+
+  <!-- Hero-section -->
+  <section class="mt-16 pb-44 light-curvy-bg dark-curvy-bg bg-no-repeat bg-contain bg-bottom"
+  >
+    <div class="container-lg">
+      <div class="flex flex-col gap-10 items-center">
+        <!-- Hero-image -->
+        <div class="w-fit">
+          <img src={ `${ fylo_url }/illustration-intro.png` } alt="Landpage logo">
+        </div>
+        
+        <!-- Hero-content -->
+        <div class="text-center space-y-8 lg:w-9/12 xl:w-1/2">
+          <h1 class="text-3xl font-bold md:text-4xl">
+            All your files in one secure location, assessible anywhere.
+          </h1>
+          <p class="text-md mx-auto md:text-lg md:w-9/12">
+            Fylo stores all your most important files in one secure location.<br class="hidden md:block"/> Access them wherever you need, share and collaborate with friends family, and co-workers.
+          </p>
+          <ActionButton>
+            <p>Get Started</p>
+          </ActionButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features-section -->
+  <section id="features" class="pt-16 pb-32 md:py-[100px] bg-gray-50 dark:bg-[--darkBlue1]">
+    <div class="container-lg">
+      <div class="xl:px-36">
+        <div class="grid grid-cols-1 gap-16 md:gap-24 md:grid-cols-2">
+          {
+            Features.map((feature) => (
+              <FeatureCard feature={ feature } />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More-info-section -->
+  <section class="mt-36">
+    <div class="container-lg flex flex-col items-center gap-10 md:flex-row md:gap-0">
+      <!-- image -->
+      <div class="md:w-5/12">
+        <img src={ `${ fylo_url }/illustration-stay-productive.png` } alt="Stay productive image">
+      </div>
+      <div class="grow"></div>
+      <!-- content -->
+      <div class="md:w-1/2 space-y-6">
+        <h2 class="font-bold text-3xl md:text-4xl">
+          Stay productive, <br> wherever you are
+        </h2>
+        <p class="text-md md:text-lg">
+          Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs.
+        </p>
+        <p class="text-md md:text-lg">
+          Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.
+        </p>
+        <div class="underline underline-offset-4">
+          <a class="text-base md:text-md text-[--accentCyan]" href="#">
+            See how Flyo works 
+            <img class="inline" src={ `${ fylo_url}/icon-arrow.svg`} alt="icon arrow">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials-section -->
+  <section id="testimonials" class="mt-36 md:mt-52 pt-20 lg:pt-10 lg:px-20 bg-gray-50 dark:bg-[--darkBlue] ">
+    <div class="relative container-lg">
+      <div class="absolute -top-8 w-10 lg:w-20 lg:-top-16">
+        <img class="w-full h-full" src={ `${ fylo_url }/bg-quotes.png` } alt="Quotes icon">
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
+        {
+          Testimonials.map((testimonial) => (
+            <TestimonialCard testimonial={ testimonial } />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA-section -->
+  <section class="py-40 md:py-20 relative">
+    <span id="bg-top" class="absolute -z-10 top-0 right-0 left-0 bottom-1/2 bg-gray-50 dark:bg-[--darkBlue]"></span>
+    <div class="container-lg">
+      <div class="max-w-4xl mx-auto">
+        <CTACard />
+      </div>
+    </div>
+    <span id="bg-bottom" class="absolute -z-10 top-1/2 right-0 left-0 bottom-0 bg-white dark:bg-[--darkBlue2]"></span>
+  </section>
+
+</Layout>
+
+<style define:vars={{ lightCurvyBg, darkCurvyBg }} >
+.light-curvy-bg {
+  background-image: var(--lightCurvyBg);
+}
+html.dark .dark-curvy-bg {
+  background-image: var(--darkCurvyBg);
+}
+</style>

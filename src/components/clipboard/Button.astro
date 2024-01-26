@@ -1,0 +1,18 @@
+---
+type Type = 'green' | 'blue';
+
+interface Props {
+  text: string;
+  type?: Type;
+}
+
+const { text, type } = Astro.props;
+---
+<button class:list={[
+  'py-4 px-8 rounded-full', {
+    'bg-blue-500': type !== 'green',
+    'bg-teal-500': type === 'green',
+  }
+]}>
+  <p class="text-lg text-white">{ text }</p>
+</button>

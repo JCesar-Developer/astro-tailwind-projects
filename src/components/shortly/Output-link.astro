@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+
+type bgColor = 'cyan' | 'purple';
+
+interface Props {
+  inputLink: string;
+  outputLink: string;
+  btnColor?: bgColor;
+}
+
+const { inputLink, outputLink, btnColor = 'cyan' } = Astro.props;
+---
+
+<div class="bg-white rounded-lg p-4 flex flex-col items-center md:flex-row md:justify-between md:gap-4">
+  <p class="font-bold grow">{ inputLink }</p>
+  <p class="font-bold text-teal-400">{ outputLink }</p>
+  <div class="mt-2 md:mt-0">
+    <Button 
+      bgColor={ btnColor }
+      size="md"
+      text="Copy" 
+      type="square"
+    />
+  </div>
+</div>

@@ -1,0 +1,53 @@
+---
+const clipboard_url = import.meta.env.CLIPBOARD;
+---
+
+<footer class="bg-teal-50/50 flex justify-center">
+  <div class="flex flex-col py-6 items-center gap-5 md: md:flex-row md:items-center md:justify-between
+  md:max-w-5xl md:w-full md:gap-20">
+    <!-- Logo -->
+    <a href="/">
+      <img
+        class="w-12 md:w-16"
+        src={ `${clipboard_url}/logo.svg` }
+        alt="logo"
+      >
+    </a>
+  
+    <!-- Navigation -->
+    <nav class="text-center grow">
+      <ul class="space-y-2 md:columns-3 md:text-left">
+        <li class="p-sm"><a class="duration-200 hover:text-teal-400" href="#">FAQs</a></li>
+        <li class="p-sm"><a class="duration-200 hover:text-teal-400" href="#">Contact Us</a></li>
+        <li class="p-sm"><a class="duration-200 hover:text-teal-400" href="#">Privacy Policy</a></li>
+        <li class="p-sm"><a class="duration-200 hover:text-teal-400" href="#">Press Kit</a></li>
+        <li class="p-sm"><a class="duration-200 hover:text-teal-400" href="#">Install Guide</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Social-media -->
+    <div class="flex flex-row gap-5">
+      <img 
+        class="icon" 
+        src={ `${clipboard_url}/icon-facebook.svg` }
+        alt="icon-facebook"
+      >
+      <img 
+        class="icon" 
+        src={ `${clipboard_url}/icon-twitter.svg` }
+        alt="icon-twitter"
+      >
+      <img 
+        class="icon" 
+        src={ `${clipboard_url}/icon-instagram.svg` }
+        alt="icon-instagram"
+      >
+    </div>
+  </div>
+</footer>
+
+<style>
+.icon {
+  @apply w-5 md:w-6 cursor-pointer duration-200 hover:opacity-50;
+}
+</style>

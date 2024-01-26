@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AstroLogo from "../components/Astro-logo.astro";
+import ProyectCard from "../components/home/Proyect-card.astro";
+
+const home_url = import.meta.env.HME;
+const clipboard_url = import.meta.env.CLIPBOARD;
+const loopstudios_url = import.meta.env.LOOPSTUDIOS;
+const shortly_url = import.meta.env.SHORTLY;
+const bento_url = import.meta.env.BENTO;
+const fylo_url = import.meta.env.FYLO;
+const bookmark_url = import.meta.env.BOOKMARK;
+---
+
+<Layout title="Astro + Tailwind">
+  <main id="home" class="container-md relative flex flex-col items-center justify-center gap-20 my-48">
+
+    <!-- Background-Logo -->
+    <div class="fixed h-screen -z-10 top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--bg-primary] via-[--bg-secondary] to-[--bg-tertiary]">
+      <AstroLogo />
+    </div>
+
+    <!-- Hero-section -->
+    <section class="text-white text-center space-y-8">
+      <!-- title -->
+      <h1 class="text-5xl font-bold [text-shadow:_#000_2px_2px_10px]">
+        <span class="text-[--astro-color]">ASTRO</span>
+        <span class="text-[--tailwind-color]">TAILWIND</span>
+      </h1>
+      
+      <!-- content -->
+      <div class="max-w-md space-y-8 m-auto">
+        
+        <p class="text-md leading-relaxed">
+          6 proyectos, completamente desarrollados con 
+          <span class="font-strong">ASTRO JS</span> + 
+          <span class="font-strong">TAILWIND CSS</span>. 
+          Cero <span class="font-strong">JAVASCRIPT</span>. 
+          Performaces optimizadas al 100%
+        </p>
+
+        <p class="text-xs text-[--accent-gray] italic">
+          Los diseños utilizados para los proyectos pertenecen a ZeroToMastery, y son de libre derecho de uso y publicación.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proyects-section -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <a href={ clipboard_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-1.png`}
+          title="Clipboard"
+        />
+      </a>
+      <a href={ loopstudios_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-2.png`}
+          title="Loopstudios"
+        />
+      </a>
+      <a href={ shortly_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-3.png`}
+          title="Shortly"
+        />
+      </a>
+      <a href={ bento_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-4.png`}
+          title="Bento Quote"
+        />
+      </a>
+      <a href={ fylo_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-5.png`}
+          title="Fylo"
+        />
+      </a>
+      <a href={ bookmark_url }>
+        <ProyectCard 
+          image={ `${ home_url }/project-6.png`}
+          title="Bookmark"
+        />
+      </a>
+    </section>
+
+  </main>
+</Layout>
+
+<style is:global>
+:root {
+  --bg-primary: #37276E;
+  --bg-secondary: #261A3C;
+  --bg-tertiary: black;
+
+  --accent-white: white;
+  --accent-gray: #d0d0d0;
+
+  --astro-color: #F66D2B95;
+  --tailwind-color: #06b5d495;
+  --javascript-color: #F7DF1E95;
+}
+
+#home {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#home a {
+  @apply hover:scale-105 duration-300 shadow-lg;
+}
+
+#home .font-strong {
+  @apply font-bold [text-shadow:_#000_1px_0_10px];
+}
+</style>

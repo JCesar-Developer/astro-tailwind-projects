@@ -1,0 +1,40 @@
+---
+import { type Author } from '../../data/bento.data';
+
+type TextColor = 'white' | 'black';
+
+interface Props {
+  author: Author;
+  textColor: TextColor;
+}
+
+const { author, textColor } = Astro.props;
+---
+
+<header class="flex flex-row space-x-3 items-center">
+  <!-- picture -->
+  <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-300">
+    <img src={ author.picture } alt={ author.picture }>
+  </div>
+  <!-- name & position -->
+  <div>
+    <h1 class:list={[
+      "text-sm font-medium", 
+      {
+        "text-white": textColor === 'white',
+        "text-black": textColor === 'black',
+      }
+    ]}>
+      { author.name }
+    </h1>
+    <h2 class:list={[
+      "text-sm opacity-50", 
+      {
+        "text-white": textColor === 'white',
+        "text-black": textColor === 'black',
+      }
+    ]}>
+      { author.position }
+    </h2>
+  </div>
+</header>

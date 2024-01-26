@@ -1,0 +1,19 @@
+---
+type Size = 'short' | 'long';
+
+interface Props {
+  size?: Size;
+}
+
+const { size = 'long' } = Astro.props;
+---
+
+<button class:list={[
+  'bg-[--accentCyan] py-3 rounded-full hover:scale-95 duration-100',
+  {
+    'px-16': size === 'long',
+    'px-8': size === 'short',
+  }
+]}>
+  <slot />
+</button>

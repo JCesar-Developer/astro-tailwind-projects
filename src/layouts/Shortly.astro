@@ -1,0 +1,60 @@
+---
+import Header from '../components/shortly/Header.astro';
+import Footer from '../components/shortly/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Shortly app developed with Astro + Tailwind CSS" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@400;500;700&display=swap"/>
+
+		<title>{title}</title>
+	</head>
+	<body id="shortly">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+	</body>
+</html>
+
+<style is:global>
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --cyanLight: hsl(180, 66%, 69%);
+  --darkViolet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --grayishViolet: hsl(257, 7%, 63%);
+  --veryDarkBlue: hsl(255, 11%, 22%);
+  --veryDarkViolet: hsl(260, 8%, 14%) ;
+}
+
+.b1 { border: solid 1px red; }
+.b2 { border: solid 1px blue; }
+.b3 { border: solid 1px green; }
+.b4 { border: solid 1px yellow; }
+.b5 { border: solid 1px orange; }
+.b5 { border: solid 1px purple; }
+
+#shortly > * {
+  font-family: 'Poppins', sans-serif;
+}
+
+#shortly .container-md {
+  @apply px-6 md:px-0 md:container md:mx-auto xl:max-w-6xl;
+}
+</style>

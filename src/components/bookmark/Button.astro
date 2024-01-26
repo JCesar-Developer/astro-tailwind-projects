@@ -1,0 +1,42 @@
+---
+type Color = 'red' | 'gray' | 'blue';
+type Size = 'medium' | 'large';
+type Wide = 'wide' | 'narrow';
+type Weight = 'normal' | 'bold';
+
+interface Props {
+  color?: Color;
+  size?: Size;
+  wide?: Wide;
+  fontWeight?: Weight;
+}
+
+const { 
+  color = 'blue',
+  size  = 'medium',
+  wide  = 'narrow',
+  fontWeight = 'normal',
+} = Astro.props;
+---
+
+<button class:list={[
+  {
+    'bg-[--softBlue] text-white border-2 border-[--softBlue] hover:bg-transparent hover:text-[--softBlue]': color === 'blue',
+    'bg-gray-300 border-2 border-gray-300 hover:bg-transparent hover:text-gray-700': color === 'gray',
+    'bg-[--softRed] border-2 border-[--softRed] text-white hover:bg-transparent hover:text-[--softRed]': color === 'red',
+  },
+  {
+    'font-normal': fontWeight === 'normal',
+    'font-semibold': fontWeight === 'bold',
+  },
+  {
+    'px-4 rounded': size === 'medium',
+    'px-8 rounded-lg': size === 'large',
+  },
+  {
+    'py-2': wide === 'narrow',
+    'py-4': wide === 'wide',
+  }
+]}>
+  <slot />
+</button>

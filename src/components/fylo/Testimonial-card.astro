@@ -1,0 +1,33 @@
+---
+import { type FyloTestimonial } from '../../data/fylo.data';
+
+interface Props {
+  testimonial: FyloTestimonial;
+}
+
+const { testimonial } = Astro.props;
+---
+
+<section class="bg-gray-100 dark:bg-[--darkBlue3] p-8 rounded-xl">
+  <div class="space-y-5">
+    <!-- Quote -->
+    <blockquote class="text-md lg:text-lg">
+      { testimonial.quote }
+    </blockquote>
+  
+    <!-- Author -->
+    <footer class="flex flex-row gap-3 items-center">
+      <img 
+        class="w-12 h-12 rounded-full"
+        src={ testimonial.author.avatar } 
+        alt={ testimonial.author.name } 
+      />
+
+      <!-- name & title -->
+      <div class="flex flex-col text-start">
+        <h3 class="font-bold">{ testimonial.author.name }</h3>
+        <p class="text-sm -mt-1">{ testimonial.author.title }</p>
+      </div>
+    </footer>
+  </div>
+</section>

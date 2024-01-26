@@ -1,0 +1,66 @@
+---
+import Button from '../../components/shortly/Button.astro'
+import HamburgerBtn from '../Hamburger-btn.astro';
+
+interface Props {
+  items: Item[];
+}
+
+interface Item {
+  name: string;
+  link: string;
+}
+
+const { items } = Astro.props;
+---
+<div class="flex flex-row items-center md:grow">
+  <!-- Hamburguer btn -->
+  <input type="checkbox" id="nav-toggle" class="peer hidden">
+
+  <div class="md:hidden z-20">
+    <HamburgerBtn color='gray' />
+  </div>
+
+  <!-- Mobile NavBar -->
+  <nav class="mt-8 hidden peer-checked:block duration-500 absolute top-full left-[50%] translate-x-[-50%] w-full px-6">
+    <div class="bg-[--darkViolet] text-white font-bold text-lg text-center p-6 rounded-xl space-y-5 flex flex-col">
+      <ul class="space-y-5">
+        {
+          items.map((item) => (
+            <li>
+              <a href={ item.link }>{ item.name }</a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="border-b-2 mx-8 border-gray-500"></div>
+      <button>Login</button>
+      <Button text="Sign Up" />
+    </div>
+  </nav>
+
+  <!-- Navigation -->
+  <nav class="grow hidden md:block">
+    <ul class="flex flex-row gap-8">
+      {
+        items.map((item) => (
+          <li class="text-nav">
+            <a href={ item.link }>{ item.name }</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <!-- Login & SignUp -->
+  <div class="space-x-4 hidden md:block">
+    <button class="text-nav">Login</button>
+    <Button text="Sign Up" />
+  </div>
+</div>
+
+<style>
+.text-nav {
+  @apply text-[16px] font-bold text-[--grayishViolet] cursor-pointer hover:text-black duration-100;
+}
+</style>

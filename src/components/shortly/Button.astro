@@ -1,0 +1,40 @@
+---
+type Type = 'square' | 'rounded';
+type Size = 'sm' | 'md' | 'lg';
+type BgColor = 'cyan' | 'purple';
+
+interface Props {
+  _class?: string;
+  bgColor?: BgColor;
+  size?: Size;
+  text: string;
+  type?: Type;
+}
+
+const { 
+  _class = '', 
+  bgColor = 'cyan',
+  size = 'lg',
+  text, 
+  type = 'rounded',
+} = Astro.props;
+---
+<button class:list={[ 
+  'text-white duration-100 ease-in-out transition-all',
+  {
+    'bg-[--cyan] hover:bg-[--cyanLight]': bgColor === 'cyan', 
+    'bg-[--darkViolet] hover:bg-[--grayishViolet]': bgColor === 'purple',
+  },
+  {
+    'rounded-lg': type === 'square',
+    'font-bold rounded-full': type === 'rounded', 
+  },
+  {
+    'px-6 py-1': size === 'sm',
+    'px-8 py-2': size === 'md',
+    'px-10 py-3': size === 'lg',
+  },
+  _class 
+]}>
+  {text}
+</button>

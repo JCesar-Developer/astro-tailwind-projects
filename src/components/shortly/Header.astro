@@ -1,0 +1,20 @@
+---
+import NavBar from "./Nav-bar.astro";
+
+const shortly_url = import.meta.env.SHORTLY;
+---
+<header class="relative mt-6 container-md">
+  <div class="flex flex-row justify-between items-center gap-20">
+    <!-- Logo -->
+    <a href="/">
+      <img src={ `${ shortly_url }/logo.svg` } alt="Logo">
+    </a>
+
+    <NavBar items={[
+      { name: "Features", link: "#" },
+      { name: "Pricing", link: "#" },
+      { name: "Resources", link: "#" },
+    ]}/>
+
+  </div>
+</header>

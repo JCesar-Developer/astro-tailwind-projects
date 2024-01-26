@@ -1,0 +1,28 @@
+---
+interface Props {
+  image: string;
+  title: string;
+}
+
+const { image, title } = Astro.props;
+---
+
+<article class="border-2 border-[--border-color] max-w-xs">
+  <img 
+    class="w-full aspect-[2/1] object-cover object-top"
+    src={ image } 
+    alt={ title } 
+  />
+  <div class="p-4 bg-[--bg-color] space-y-2">
+    <h1 class="text-lg text-center font-semibold text-white tracking-wide">
+      { title }
+    </h1>
+  </div>
+</article>
+
+<style>
+:root {
+  --bg-color: #23262D;
+  --border-color: #2F333A;
+}
+</style>

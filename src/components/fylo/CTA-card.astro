@@ -1,0 +1,30 @@
+---
+import ActionButton from "./Action-button.astro"
+---
+
+<article class="bg-gray-200 dark:bg-[--darkBlue1] rounded-xl">
+  <!-- container -->
+  <div class="text-center py-10 px-6 lg:px-16">
+    <!-- title -->
+    <h3 class="text-xl font-bold md:text-2xl">
+      Get early access today
+    </h3>
+    <!-- description -->
+    <p class="mt-5">
+      It only takes a minute to sign up and our free starter tier is extremely generous. If you have any questions, our support team would be happy to help you.
+    </p>
+    <!-- form -->
+    <div class="mt-8">
+      <div class="flex flex-col gap-4 md:flex-row md:gap-6">
+        <input 
+          class="grow rounded-full px-8 py-3"
+          type="text"
+          placeholder="email@example.com"
+        >
+        <ActionButton size="short">
+          <p>Get Started For Free</p>
+        </ActionButton>
+      </div>
+    </div>
+  </div>
+</article>

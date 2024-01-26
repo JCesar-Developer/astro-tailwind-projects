@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Clipboard.astro';
+import Button from '../components/clipboard/Button.astro';
+
+const clipboard_url = import.meta.env.CLIPBOARD;
+---
+
+<Layout title="Clipboard website">
+  <main class="relative px-8">
+
+    <!-- BG-IMAGE -->
+    <section>
+      <!-- For desktop -->
+      <img
+        class="absolute top-0 left-0 w-full md:hidden -z-10"
+        src={ `${clipboard_url}/bg-header-mobile.png` }
+        alt="background image"
+      >
+  
+      <!-- For desktop -->
+      <img
+        class="absolute top-0 left-0 w-full hidden md:block -z-10"
+        src={ `${clipboard_url}/bg-header-desktop.png` }
+        alt="background image"
+      >
+    </section>
+
+    <!-- HERO -->
+    <section  
+      aria-label="hero"
+      class="text-center flex flex-col items-center pt-28 md:pt-36"
+    >
+
+      <!-- logo -->
+      <a href="/">
+        <img class="w-24 md:w-32" src={ `${clipboard_url}/logo.svg` } alt="logo">
+      </a>
+
+      <!-- hero-branding -->
+      <h1 class="mt-12">A history of everything you copy</h1>
+      <p class="p-lg mt-6 md:w-8/12 lg:7/12">
+        Clipboard allows you to track and organize everything you copy. Instantly access your clipboard on all your devices.
+      </p>
+    
+      <!-- download-buttons -->
+      <div class="flex flex-col mt-10 space-y-4 w-full md:w-max md:flex-row md:space-y-0 md:space-x-4">
+        <Button text="Download for iOS" type='green'/>
+        <Button text="Download for Mac" />
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section
+      aria-label="features"
+      class="mt-28 text-center flex flex-col items-center"
+    >
+      <!-- Main-feature -->
+      <h1>Keep track of your snippets</h1>
+      <p class="p-md mt-4 md:w-8/12 lg:7/12">
+        Clipboard instantly stores any item you copy in the cloud, meaning you can access your snippets immediately on all your devices. Our Mac and iOS apps will help you organize everything.
+      </p>
+
+      <!-- Other-features  -->
+      <section aria-label="features" class="mt-20 flex flex-col space-y-12 md:space-y-0 md:flex-row lg:items-center">
+        <figure class="md:w-1/2">
+          <img
+            class="w-full h-auto"
+            src={ `${clipboard_url}/image-computer.png` }
+            alt="screen image"
+          >
+        </figure>
+
+        <div class="space-y-10 md:px-12 md:w-1/2 lg:mx-20 lg:w-5/12
+        md:[&>article]:text-start">
+          <article>
+            <h2>Quick Search</h2>
+            <p class="p-md">Easily search your snippets by content, category, web address, application, and more.</p>
+          </article>
+
+          <article>
+            <h2>iCloud Sync</h2>
+            <p  class="p-md">Instantly saves and syncs snippets across all your devices.</p>
+          </article>
+
+          <article>
+            <h2>Completely History</h2>
+            <p  class="p-md">Retrieve any snippets from the first moment you started using the app.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ACCESIBILITY -->
+    <section
+      aria-label="accesibility"
+      class="mt-32 flex flex-col items-center text-center"
+    >
+      <h1>Access Clipboard Anywhere</h1>
+      <p class="p-md md:w-8/12">Whether you’re on the go, or at your computer, you can access all your Clipboard snippets in a few simple clicks.</p>
+
+      <img
+        class="mt-20"
+        src={ `${clipboard_url}/image-devices.png` }
+        alt="devices"
+      >
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section
+      aria-label="advantages"
+      class="mt-20 flex flex-col items-center text-center"
+    >
+      <h1>Supercharge your workflow</h1>
+      <p class="p-md md:w-8/12">We've got the tools to boost your productivity.</p>
+
+      <!-- advantages-examples -->
+      <section class="grid grid-cols-1 md:grid-cols-3 mt-10 md:mt-20 md:w-9/12 gap-12
+      [&>article]:flex [&>article]:flex-col [&>article]:items-center
+      [&>article>h2]:mt-8 [&>article>p]:mt-4">
+        <article>
+          <img src={ `${clipboard_url}/icon-blacklist.svg` } alt="icon-blacklist">
+          <h2>Create Blacklists</h2>
+          <p class="p-sm">Easily search your snippets by content, category, web address, application, and more.</p>
+        </article>
+        <article>
+          <img src={ `${clipboard_url}/icon-text.svg` } alt="icon-text">
+          <h2>Plain Text Snippets</h2>
+          <p class="p-sm">Remove unwanted formatting from copied text for a consistent look.</p>
+        </article>
+        <article>
+          <img src={ `${clipboard_url}/icon-preview.svg` } alt="icon-preview">
+          <h2>Sneak Preview</h2>
+          <p class="p-sm">Quick preview of all snippets on your Clipboard for easy access.</p>
+        </article>
+      </section>
+
+      <!-- clients -->
+      <section class="mt-32 grid grid-cols-1 md:grid-cols-5 md:justify-between md:w-full md:max-w-6xl gap-12 
+      md:items-center justify-items-center">
+        <img src={ `${clipboard_url}/logo-google.png` } alt="">
+        <img src={ `${clipboard_url}/logo-ibm.png` } alt="">
+        <img src={ `${clipboard_url}/logo-microsoft.png` } alt="">
+        <img src={ `${clipboard_url}/logo-hp.png` } alt="">
+        <img src={ `${clipboard_url}/logo-vector-graphics.png` } alt="">
+      </section>
+
+    </section>
+
+    <!-- PRE-FOOTER -->
+    <section class="mt-28 mb-20 flex flex-col items-center text-center">
+      <!-- hero-branding -->
+      <h1 class="mt-12">A history of everything you copy</h1>
+      <p class="p-lg mt-6 md:w-8/12 lg:7/12">
+        Clipboard allows you to track and organize everything you copy. Instantly access your clipboard on all your devices.
+      </p>
+    
+      <!-- download-buttons -->
+      <div class="flex flex-col mt-10 space-y-4 w-full md:w-max md:flex-row md:space-y-0 md:space-x-4">
+        <Button text="Download for iOS" type='green'/>
+        <Button text="Download for Mac" />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+</style>

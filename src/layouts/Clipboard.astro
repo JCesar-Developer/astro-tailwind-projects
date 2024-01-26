@@ -1,0 +1,99 @@
+---
+import Footer from '../components/clipboard/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Clipboard landpage developed with Astro + Tailwind CSS"/>
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+	<body id="clipboard">
+		<slot />
+    <Footer />
+	</body>
+</html>
+
+<style is:global>
+:root {
+  --primary-clipboard-text-color: #4C545D;
+  --secondary-clipboard-text-color: #9FABB2;
+}
+
+.b1 { border: solid 1px red; }
+.b2 { border: solid 1px blue; }
+.b3 { border: solid 1px green; }
+.b4 { border: solid 1px yellow; }
+.b5 { border: solid 1px orange; }
+.b5 { border: solid 1px purple; }
+
+#clipboard {
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#clipboard h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--primary-clipboard-text-color);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+#clipboard h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-clipboard-text-color);
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+#clipboard .p-lg {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--secondary-clipboard-text-color);
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+
+#clipboard .p-md {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--secondary-clipboard-text-color);
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+#clipboard .p-sm {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--secondary-clipboard-text-color);
+}
+
+@media (max-width: 768px) {
+  #clipboard .p-sm {
+    font-size: .8rem;
+  }
+}
+</style>

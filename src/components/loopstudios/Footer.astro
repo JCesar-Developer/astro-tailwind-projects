@@ -1,0 +1,65 @@
+---
+const loopstudios_url = import.meta.env.LOOPSTUDIOS;
+---
+
+<footer class="bg-black pt-9 pb-20">
+  <div class="container-md flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0">
+
+    <!-- logo & navigation -->
+    <div class="text-white space-y-7 md:space-y-2">
+      <!-- Logo -->
+      <a href="/">
+        <img class="mx-auto md:mx-0" src={ `${ loopstudios_url }/logo.svg` } alt="Logo">
+      </a>
+      
+      <!-- Navigation -->
+      <nav>
+        <ul class="flex flex-col items-center md:items-start md:flex-row gap-7 md:gap-5 [&>li]:font-medium">
+          <li>
+            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">About</a>
+          </li>
+          <li>
+            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Careers</a>
+          </li>
+          <li>
+            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Events</a>
+          </li>
+          <li>
+            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Products</a>
+          </li>
+          <li>
+            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Support</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- social media & rights -->
+    <div class="space-y-4">
+      <div class="flex flex-row justify-center md:justify-start gap-4">
+        <img 
+          class="cursor-pointer w-6" 
+          src={ `${ loopstudios_url }/icon-facebook.svg` } 
+          alt=""
+        >
+        <img 
+          class="cursor-pointer w-6" 
+          src={ `${ loopstudios_url }/icon-twitter.svg` } 
+          alt=""
+        >
+        <img 
+          class="cursor-pointer w-6" 
+          src={ `${ loopstudios_url }/icon-pinterest.svg` } 
+          alt=""
+        >
+        <img 
+          class="cursor-pointer w-6" 
+          src={ `${ loopstudios_url }/icon-instagram.svg` } 
+          alt=""
+        >
+      </div>
+      <p class="text-gray-400 text-sm tracking-wider">© 2022 Loopstudios. All Rights Reserved</p>
+    </div>
+
+  </div>
+</footer>

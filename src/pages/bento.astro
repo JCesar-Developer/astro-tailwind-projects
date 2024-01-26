@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Bento.astro"
+import BentoItem from '../components/bento/Bento-item.astro'
+import { bentoQuotes as Quotes } from '../data/bento.data';
+
+const bento_url = import.meta.env.BENTO;
+---
+
+<Layout title="Tertimonial Bento">
+  <section class="p-2 grid grid-cols-1 gap-5 
+  md:grid-cols-4 md:py-10 md:p-0 md:max-w-6xl md:mx-auto">
+    <!-- Item 1  -->
+    <div class="md:col-span-2">
+      <BentoItem 
+        quote={ Quotes[0] }
+        textColor="white"
+        bgColor="bg-purple-700"
+        bgImage={`${ bento_url }/bg-pattern-quotation.svg`}
+        clamp
+      />
+    </div>
+
+    <!-- Item 2 -->
+    <div>
+      <BentoItem 
+        quote={ Quotes[1] }
+        bgColor="bg-gray-600"
+        textColor="white"
+        clamp
+      />
+    </div>
+
+    <!-- Item 3 -->
+    <div class="md:row-span-2">
+      <BentoItem 
+        quote={ Quotes[2] }
+        bgColor="bg-white"
+      />
+    </div>
+
+    <!-- Item 4 -->
+    <div>
+      <BentoItem 
+        quote={ Quotes[3] }
+        bgColor="bg-white"
+      />
+    </div>
+
+    <!-- Item 5 -->
+    <div class="md:col-span-2">
+      <BentoItem 
+        quote={ Quotes[4] }
+        bgColor="bg-gray-900"
+        textColor="white"
+      />
+    </div>
+  </section>
+</Layout>

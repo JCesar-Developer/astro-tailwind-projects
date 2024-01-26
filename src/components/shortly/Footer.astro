@@ -1,0 +1,53 @@
+---
+const shortly_url = import.meta.env.SHORTLY;
+---
+
+<footer class="bg-[--veryDarkViolet] text-white">
+  <div class="
+    container-md py-16 flex flex-col justify-between items-center text-center space-y-16
+    md:items-start md:flex-row md:text-left md:space-y-0"
+  >
+    <!-- Logo -->
+    <section>
+      <a href="/">
+        <img alt="logo" src={ `${ shortly_url }/logo.svg` }>
+      </a>
+    </section>
+
+    <!-- Links -->
+    <section class="flex flex-col w-1/2 justify-between md:flex-row space-y-16
+    md:space-y-0 [&>ul]:space-y-4 md:[&>ul]:max-w-[100px]
+    [&>ul>li>a]:text-[--grayishViolet] hover:[&>ul>li>a]:text-[--cyan] [&>ul>li>a]:duration-100">
+      <ul>
+        <li class="font-bold">Features</li>
+        <li><a href="#">Link Shortening</a></li>
+        <li><a href="#">Branded Links</a></li>
+        <li><a href="#">Analytics</a></li>
+      </ul>
+      <ul>
+        <li class="font-bold">Resources</li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Developer</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+      <ul>
+        <li class="font-bold">Company</li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our teams</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </section>
+
+    <!-- Social media -->
+    <section>
+      <div class="flex flex-row gap-5 
+      [&>img]:cursor-pointer hover:[&>img]:opacity-70 hover:[&>img]:duration-200 hover:[&>img]:scale-110">
+        <img src={ `${ shortly_url }/icon-facebook.svg` } alt="Facebook Icon">
+        <img src={ `${ shortly_url }/icon-twitter.svg` } alt="Twitter Icon">
+        <img src={ `${ shortly_url }/icon-pinterest.svg` } alt="Pinteres Icon">
+        <img src={ `${ shortly_url }/icon-instagram.svg` } alt="Instagram Icon">
+      </div>
+    </section>
+  </div>
+</footer>

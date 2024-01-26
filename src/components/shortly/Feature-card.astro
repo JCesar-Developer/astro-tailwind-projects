@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  imgSrc: string;
+  imgAlt?: string;
+}
+
+const { title, description, imgSrc, imgAlt = '' } = Astro.props;
+---
+
+<article class="relative bg-white p-5 flex flex-col items-center rounded-lg md:items-start h-fit">
+  <div class="p-4 md:p-5 rounded-full bg-[--veryDarkViolet] relative -top-12 -mb-8 md:-mb-4">
+    <img 
+      class="w-6 md:w-10"
+      alt={ imgAlt }
+      src={ imgSrc } 
+    >
+  </div>
+  <h3 class="font-bold text-sm md:text-xl">
+    { title }
+  </h3>
+  <p class="text-xs text-gray-400 text-center mt-4 md:text-base md:text-left">
+    { description }
+  </p>
+</article>

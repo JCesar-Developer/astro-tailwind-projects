@@ -1,0 +1,57 @@
+---
+import Hero from '../components/loopstudios/Hero.astro';
+import Footer from '../components/loopstudios/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Loopstudios landpages developed with Astro + Tailwind CSS" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+	<body id="loopstudios">
+    <Hero />
+    <main class="container-md">
+      <slot />
+    </main>
+    <Footer />
+	</body>
+</html>
+
+<style is:global>
+.b1 { border: solid 1px red; }
+.b2 { border: solid 1px blue; }
+.b3 { border: solid 1px green; }
+.b4 { border: solid 1px yellow; }
+.b5 { border: solid 1px orange; }
+.b5 { border: solid 1px purple; }
+
+#loopstudios .alata {
+  font-family: 'Alata', sans-serif;
+}
+#loopstudios .josefin {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#loopstudios .container-md {
+  @apply px-6 md:px-0 md:container md:mx-auto xl:max-w-6xl;
+}
+
+#loopstudios h2 {
+  @apply josefin uppercase text-4xl md:text-5xl font-light;
+}
+</style>

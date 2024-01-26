@@ -1,0 +1,24 @@
+---
+import { type FyloFeature } from '../../data/fylo.data';
+
+interface Props {
+  feature: FyloFeature;
+}
+
+const { feature } = Astro.props;
+---
+<article class="flex flex-col items-center gap-6">
+  <div class="w-24 h-24 flex items-center justify-center">
+    <img 
+      src={ feature.icon } 
+      alt={ feature.title }>
+  </div>
+  <div class="text-center space-y-2">
+    <h3 class="text-xl font-bold">
+      { feature.title }
+    </h3>
+    <p class="text-base">
+      { feature.description }
+    </p>
+  </div>
+</article>

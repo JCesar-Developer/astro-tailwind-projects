@@ -1,0 +1,90 @@
+---
+const fylo_url = import.meta.env.FYLO;
+const darkLogo   = `url(${ fylo_url }/logo-dark-mode.svg)`;
+---
+
+<footer class="bg-[--darkBlue2] pt-10 pb-16 text-white">
+  <div class="container-lg flex flex-col gap-20 
+  md:flex-row md:justify-between md:items-start md:gap-0">
+
+    <!-- Logo & Contact -->
+    <section class="flex flex-col space-y-6">
+      <!-- Logo -->
+      <a href="/" class="scale-75 relative -left-12 md:-left-6">
+        <div class="w-48 h-[52px]">
+          <div class="dark-logo bg-no-repeat w-full h-full"></div>
+        </div>
+      </a>
+
+      <ul class="flex flex-col gap-4 [&>li]:flex [&>li]:gap-3">
+        <li class="flex items-center">
+          <picture class="w-6 h-5">
+            <img src={ `${ fylo_url }/icon-phone.svg` } alt="Phone icon">
+          </picture>
+          <p>+1-543-123-4567</p>
+        </li>
+        <li class="flex items-center">
+          <picture class="w-6 h-5">
+            <img src={ `${ fylo_url }/icon-email.svg` } alt="Email icon">
+          </picture>
+          <p>example@fylo.com</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Links -->
+    <section class="flex flex-col gap-8 md:flex-row md:gap-20">
+      <ul class="nav-list">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <ul class="nav-list">
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </section>
+
+    <!-- Social media -->
+    <section class="flex gap-3 mx-auto md:mx-0">
+      <a href="#">
+        <img 
+          class="ficon p-2 bg-[--darkBlue] rounded-full" 
+          src={ `${ fylo_url }/facebook.svg` } 
+          alt="Facebook icon"
+        >
+      </a>
+      <a href="#">
+        <img 
+          class="ficon p-2 bg-[--darkBlue] rounded-full" 
+          src={ `${ fylo_url }/twitter.svg` } 
+          alt="Twitter icon"
+        >
+      </a>
+      <a href="#">
+        <img 
+          class="ficon p-2 bg-[--darkBlue] rounded-full" 
+          src={ `${ fylo_url }/instagram.svg` } 
+          alt="Instagram icon"
+        >
+      </a>
+    </section>
+
+  </div>
+</footer>
+
+<style define:vars={{ darkLogo }}>
+.dark-logo {
+  background-image: var(--darkLogo);
+}
+
+.ficon:hover {
+  filter: invert(80%) sepia(37%) saturate(7048%) hue-rotate(132deg) brightness(105%) contrast(104%);
+}
+
+.nav-list {
+  @apply flex flex-col gap-3 hover:[&>li]:text-[--accentCyan] text-xl md:text-base
+}
+</style>

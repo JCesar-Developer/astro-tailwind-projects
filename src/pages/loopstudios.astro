@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Loopstudios.astro";
+import Card from "../components/loopstudios/Card.astro"
+
+const loopstudios_url = import.meta.env.LOOPSTUDIOS;
+---
+
+<Layout title="loopstudios">
+  
+  <!-- Best-branding -->
+  <section class="space-y-5 mt-32 md:space-y-0 relative">
+    <figure class="md:w-8/12">
+      <img 
+        alt="interactive image"
+        class="aspect-[3/2] w-full" 
+        src=`${loopstudios_url}/mobile/image-interactive.jpg` 
+      >
+    </figure>
+    
+    <article class="text-center md:text-left space-y-5 md:absolute bottom-0 right-0 md:pt-10 md:pl-10 md:bg-white md:w-8/12 lg:w-6/12 lg:pt-20 lg:pl-20">
+      <h2>THE LEADER IN INTERACTIVE VR</h2>
+      <p class="alata font-light text-sm leading-relaxed text-black/50">Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations have transformed businesses through digital experiences that bind to their brand.</p>
+    </article>
+  </section>
+  
+  <!-- Our-creations -->
+  <section class="mt-32 mb-20 md:mb-32">
+    <!-- Title -->
+    <div class="flex md:flex-row md:justify-between md:items-center">
+      <h2 class="mx-auto md:mx-0">OUR CREATIONS</h2>
+      <button class="josefin uppercase border-2 border-black font-bold px-10 pt-4 pb-3 tracking-widest hover:bg-black hover:text-white hidden md:block duration-200">
+        SEE ALL
+      </button>
+    </div>
+
+    <!-- Grid-cards -->
+    <section class="flex flex-col md:grid md:grid-cols-4 gap-8 mt-20">
+      <Card title="Deep earth" link="/image-deep-earth.jpg" />
+      <Card title="Night arcade" link="/image-night-arcade.jpg" />
+      <Card title="Soccer team vr" link="/image-soccer-team.jpg" />
+      <Card title="The grid" link="/image-grid.jpg" />
+      <Card title="From up above vr" link="/image-from-above.jpg" />
+      <Card title="Pocket borealis" link="/image-pocket-borealis.jpg" />
+      <Card title="The curiosity" link="/image-curiosity.jpg" />
+      <Card title="Make it fisheye" link="/image-fisheye.jpg" />
+    </section>
+
+    <!-- CTA -->
+    <button class="josefin uppercase border-2 border-black font-bold mt-10 w-full pt-4 pb-3 tracking-widest hover:bg-black hover:text-white md:hidden duration-200">
+      SEE ALL
+    </button>
+  
+  </section>
+</Layout>

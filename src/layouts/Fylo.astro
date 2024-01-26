@@ -1,0 +1,83 @@
+---
+import Header from '../components/fylo/Header.astro';
+import Footer from '../components/fylo/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Fylo landpage developed with Astro + Tailwind CSS" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- https://www.freecodecamp.org/news/how-to-build-a-dark-mode-switcher-with-tailwind-css-and-flowbite-->
+    <script>
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  
+    <title>{title}</title>
+	</head>
+  
+	<body id="fylo" class="dark:bg-[--darkBlue] dark:text-white">
+    <Header />
+
+    <slot />
+
+    <Footer />
+    <script src="../js/fylo.js"></script>
+	</body>
+</html>
+
+<style is:global>
+:root {
+  --darkBlue: hsl(217, 28%, 15%);
+  --darkBlue1: hsl(218, 28%, 13%);
+  --darkBlue2: hsl(216, 53%, 9%);
+  --darkBlue3: hsl(219, 30%, 18%);
+  --accentCyan: hsl(176, 68%, 64%);
+  --accentBlue: hsl(198, 60%, 50%);
+  --lightRed: hsl(0, 100%, 63%);
+}
+
+.b1 { border: solid 1px red; }
+.b2 { border: solid 1px blue; }
+.b3 { border: solid 1px green; }
+.b4 { border: solid 1px yellow; }
+.b5 { border: solid 1px orange; }
+.b5 { border: solid 1px purple; }
+
+#fylo .container-lg {
+  @apply container mx-auto px-6 max-w-[1440px];
+}
+
+#fylo .sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#fylo .raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+#fylo * {
+  @apply sans;
+}
+</style>

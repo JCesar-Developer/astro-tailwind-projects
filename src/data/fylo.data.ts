@@ -1,3 +1,5 @@
+const fylo_url = import.meta.env.FYLO;
+
 export interface FyloFeature {
   icon: string;
   title: string;
@@ -6,22 +8,22 @@ export interface FyloFeature {
 
 export const Features: FyloFeature[] = [
   {
-    icon: 'fylo/icon-access-anywhere.svg',
+    icon: `${fylo_url}/icon-access-anywhere.svg`,
     title: 'Access your file from anywhere',
     description: 'The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.',
   },
   {
-    icon: 'fylo/icon-security.svg',
+    icon: `${fylo_url}/icon-security.svg`,
     title: 'Security you can trust',
     description: '2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.',
   },
   {
-    icon: 'fylo/icon-collaboration.svg',
+    icon: `${fylo_url}/icon-collaboration.svg`,
     title: 'Real-time collaboration',
     description: 'Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.',
   },
   {
-    icon: 'fylo/icon-any-file.svg',
+    icon: `${fylo_url}/icon-any-file.svg`,
     title: 'Store any type of file',
     description: 'Whether you\'re sharing holidays photos or work documents, Fylo has you covered allowing for all file types to be securely stored and shared.',
   },
@@ -41,7 +43,7 @@ export interface Author {
 export const Testimonials: FyloTestimonial[] = [
   {
     author: {
-      avatar: 'fylo/profile-1.jpg',
+      avatar: `${fylo_url}/profile-1.jpg`,
       name: 'Satish Patel',
       title: 'Founder & CEO, Huddle',
     },
@@ -49,7 +51,7 @@ export const Testimonials: FyloTestimonial[] = [
   },
   {
     author: {
-      avatar: 'fylo/profile-2.jpg',
+      avatar: `${fylo_url}/profile-2.jpg`,
       name: 'Bruce McKenzie',
       title: 'Founder & CEO, Huddle 2',
     },
@@ -57,7 +59,7 @@ export const Testimonials: FyloTestimonial[] = [
   },
   {
     author: {
-      avatar: 'fylo/profile-3.jpg',
+      avatar: `${fylo_url}/profile-3.jpg`,
       name: 'Iva Boyd',
       title: 'Founder & CEO, Huddle 3',
     },

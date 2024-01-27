@@ -48,6 +48,11 @@ const clipboard_url = import.meta.env.CLIPBOARD;
 
 <style>
 .icon {
-  @apply w-5 md:w-6 cursor-pointer duration-200 hover:opacity-50;
+  @apply w-5 md:w-6 cursor-pointer duration-200;
+}
+
+.icon:hover {
+  filter: invert(53%) sepia(68%) saturate(434%) hue-rotate(121deg)
+    brightness(101%) contrast(94%);
 }
 </style>

@@ -1,29 +1,23 @@
 ---
 import Layout from "../layouts/Bookmark.astro";
 import Button from '../components/bookmark/Button.astro';
+import FeaturesSelector from "../components/bookmark/Features-selector.astro";
+
+import { features } from "../data/bookmark.data";
 
 const bookmark_url = import.meta.env.BOOKMARK;
 ---
-<script>
-const featureBtn_1 = document.getElementById('feature-1');
-const featureBtn_2 = document.getElementById('feature-2');
-const featureBtn_3 = document.getElementById('feature-3');
-
-console.log({ featureBtn_1 });
-console.log({ featureBtn_2 });
-console.log({ featureBtn_3 });
-</script>
-
 <Layout title="Bookmark Website">
+
   <!-- HERO-SECTION -->
   <section class="mt-20 md:mt-32">
     <div class="container-lg flex flex-col items-center md:flex-row">
       <!-- Hero-image -->
-      <picture class="sm:w-1/2 md:order-2">
+      <picture class="md:w-1/2 md:order-2">
         <img src={ `${bookmark_url}/illustration-hero.svg` } alt="Hero image">
       </picture>
       <!-- Hero-content -->
-      <div class="sm:w-1/2">
+      <div class="md:w-1/2">
         <div class="space-y-8 lg:w-10/12 text-center md:text-left">
           <h1 class="font-semibold text-3xl md:text-6xl">
             A Simple Bookmark Manager
@@ -32,7 +26,7 @@ console.log({ featureBtn_3 });
             A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.
           </p>
           <!-- Action buttons -->
-          <div class="flex flex-col gap-3 md:flex-row sm:gap-4">
+          <div class="flex flex-col gap-3 md:flex-row md:gap-4">
             <Button wide="wide" fontWeight="bold">
               <p class="capitalize">Get it on Chrome</p>
             </Button>
@@ -59,28 +53,11 @@ console.log({ featureBtn_3 });
         </p>
       </header>
 
-      <!-- feature-selector -->
-      <nav class="mt-12 max-w-xl mx-auto md:border-b">
-        <div class="flex flex-row justify-between">
-          <button id="feature-1" class="feature-selector-item">
-            <p>Simple bookmarking</p>
-          </button>
-          <button id="feature-2" class="feature-selector-item">
-            <p>Speedy searching</p>
-          </button>
-          <button id="feature-3" class="feature-selector-item">
-            <p>Easy sharing</p>
-          </button>
-        </div>
-      </nav>
+      <div class="mt-12">
+        <FeaturesSelector features={ features } />
+      </div>
 
     </div>
   </section>
 
 </Layout>
-
-<style>
-.feature-selector-item {
-  @apply w-40 py-5 capitalize text-center text-gray-800 hover:text-[--softRed];
-}
-</style>

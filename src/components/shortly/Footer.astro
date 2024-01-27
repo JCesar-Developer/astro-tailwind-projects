@@ -41,13 +41,22 @@ const shortly_url = import.meta.env.SHORTLY;
 
     <!-- Social media -->
     <section>
-      <div class="flex flex-row gap-5 
-      [&>img]:cursor-pointer hover:[&>img]:opacity-70 hover:[&>img]:duration-200 hover:[&>img]:scale-110">
-        <img src={ `${ shortly_url }/icon-facebook.svg` } alt="Facebook Icon">
-        <img src={ `${ shortly_url }/icon-twitter.svg` } alt="Twitter Icon">
-        <img src={ `${ shortly_url }/icon-pinterest.svg` } alt="Pinteres Icon">
-        <img src={ `${ shortly_url }/icon-instagram.svg` } alt="Instagram Icon">
+      <div class="flex flex-row gap-5">
+        <img class="icon" src={ `${ shortly_url }/icon-facebook.svg` } alt="Facebook Icon">
+        <img class="icon" src={ `${ shortly_url }/icon-twitter.svg` } alt="Twitter Icon">
+        <img class="icon" src={ `${ shortly_url }/icon-pinterest.svg` } alt="Pinteres Icon">
+        <img class="icon" src={ `${ shortly_url }/icon-instagram.svg` } alt="Instagram Icon">
       </div>
     </section>
   </div>
 </footer>
+
+<style>
+.icon {
+  @apply cursor-pointer transition-all duration-200 hover:scale-105;
+}
+
+.icon:hover {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(99%) saturate(362%) hue-rotate(122deg) brightness(84%) contrast(93%);
+}
+</style>

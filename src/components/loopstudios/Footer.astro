@@ -38,24 +38,24 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
     <div class="space-y-4">
       <div class="flex flex-row justify-center md:justify-start gap-4">
         <img 
-          class="cursor-pointer w-6" 
+          class="icon" 
           src={ `${ loopstudios_url }/icon-facebook.svg` } 
-          alt=""
+          alt="Facebook icon"
         >
         <img 
-          class="cursor-pointer w-6" 
+          class="icon" 
           src={ `${ loopstudios_url }/icon-twitter.svg` } 
-          alt=""
+          alt="Twitter icon"
         >
         <img 
-          class="cursor-pointer w-6" 
+          class="icon" 
           src={ `${ loopstudios_url }/icon-pinterest.svg` } 
-          alt=""
+          alt="Pinterest icon"
         >
         <img 
-          class="cursor-pointer w-6" 
+          class="icon" 
           src={ `${ loopstudios_url }/icon-instagram.svg` } 
-          alt=""
+          alt="Instagram icon"
         >
       </div>
       <p class="text-gray-400 text-sm tracking-wider">© 2022 Loopstudios. All Rights Reserved</p>
@@ -63,3 +63,9 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
 
   </div>
 </footer>
+
+<style>
+.icon {
+  @apply cursor-pointer w-6 transition-all duration-200 hover:scale-[0.85] hover:opacity-50;
+}
+</style>

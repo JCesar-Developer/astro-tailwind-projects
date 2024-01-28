@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Bookmark.astro";
 import Button from '../components/bookmark/Button.astro';
-import FeaturesSelector from "../components/bookmark/Features-selector.astro";
+import FeaturesSelector from "../components/bookmark/FeaturesSelector.vue";
+import DownloadCard from "../components/bookmark/DownloadCard.astro";
 
 import { features } from "../data/bookmark.data";
 
@@ -40,7 +41,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
   </section>
 
   <!-- FEATURES-SECTION -->
-  <section id="features" class="my-20">
+  <section class="mt-20">
     <div class="container-lg">
 
       <!-- section-header -->
@@ -53,11 +54,76 @@ const bookmark_url = import.meta.env.BOOKMARK;
         </p>
       </header>
 
+      <!-- features-selector -->
       <div class="mt-12">
-        <FeaturesSelector features={ features } />
+        <FeaturesSelector features={ features } client:visible >
+          <Button slot="button" fontWeight="bold">
+            <p>More Info</p>
+          </Button>
+        </FeaturesSelector>
       </div>
 
     </div>
   </section>
 
+  <!-- DOWNLOAD-SECTION -->
+  <section id="download" class="mt-36">
+
+      <!-- section-header -->
+      <header class="max-w-md mx-auto text-center space-y-4">
+        <h2 class="text-3xl font-bold">
+          Download the extension
+        </h2>
+        <p class="text-[--grayishBlue]">
+          We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like us to prioritize.
+        </p>
+      </header>
+
+      <!-- download-cards -->
+      <div class="relative container-md my-20 flex flex-col md:flex-row gap-8">
+
+        <div class="w-full">
+          <DownloadCard
+            image={ `${bookmark_url}/logo-chrome.svg` }
+            imageDescription="Chrome logo"
+            title="Add to Chrome"
+            version="Minimum version 62"
+          />
+        </div>
+        <div class="relative w-full top-5">
+          <DownloadCard
+            image={ `${bookmark_url}/logo-firefox.svg` }
+            imageDescription="Firefox logo"
+            title="Add to Firefox"
+            version="Minimum version 55"
+          />
+        </div>
+        <div class="relative w-full top-10">
+          <DownloadCard
+            image={ `${bookmark_url}/logo-opera.svg` }
+            imageDescription="Opera logo"
+            title="Add to Opera"
+            version="Minimum version 46"
+          />
+        </div>
+      </div>
+
+  </section>
+
 </Layout>
+
+<style>
+.container-md {
+  @apply px-6 mx-auto;
+}
+@media (min-width: 420px) {
+  .container-md {
+    max-width: 420px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md {
+    @apply max-w-5xl px-0;
+  }
+}
+</style>

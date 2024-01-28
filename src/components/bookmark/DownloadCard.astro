@@ -1,0 +1,39 @@
+---
+import Button from './Button.astro'
+
+interface Props {
+  image: string;
+  imageDescription: string;
+  title: string;
+  version: string;
+}
+
+const { image, imageDescription, title, version } = Astro.props;
+const bookmarkUrl = import.meta.env.BOOKMARK;
+const cardDotsSeparator = `url(${bookmarkUrl}/bg-dots.svg)`;
+---
+<article class="py-8 w-full rounded-lg flex flex-col items-center shadow-card">
+  <picture class="w-24 h-24">
+    <img src={ image } alt={ imageDescription }>
+  </picture>
+
+  <div class="text-center mt-8 space-y-4">
+    <p class="text-lg font-semibold">{ title }</p>
+    <p class="text-[--grayishBlue]">{ version }</p>
+  </div>
+
+  <div class="bg-dots bg-repeat-x w-full pt-6 mt-4 px-6">
+    <Button _class="w-full py-3" size='large'>
+      <p class="capitalize">Add & install extension</p>
+    </Button>
+  </div>
+</article>
+
+<style define:vars={{ cardDotsSeparator }}>
+.shadow-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.bg-dots {
+  background-image: var(--cardDotsSeparator);
+}
+</style>

@@ -9,6 +9,7 @@ interface Props {
   size?: Size;
   wide?: Wide;
   fontWeight?: Weight;
+  _class?: string;
 }
 
 const { 
@@ -16,6 +17,7 @@ const {
   size  = 'medium',
   wide  = 'narrow',
   fontWeight = 'normal',
+  _class,
 } = Astro.props;
 ---
 
@@ -36,7 +38,8 @@ const {
   {
     'py-2': wide === 'narrow',
     'py-4': wide === 'wide',
-  }
+  },
+  _class,
 ]}>
   <slot />
 </button>

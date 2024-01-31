@@ -2,14 +2,14 @@ export interface Feature {
   content: FeatureContent;
   icon: string;
   name: string;
-}
+};
 
 export interface FeatureContent {
   description: string;
   image: string;
   link: string;
   title: string;
-}
+};
 
 export const features: Feature[] = [
   {
@@ -42,5 +42,28 @@ export const features: Feature[] = [
       link: '#'
     }
   }
-]
+];
 
+export interface FAQ {
+  question: string;
+  answer: string;
+};
+
+export const faqs: FAQ[] = [
+  {
+    question: 'What is Bookmark?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?'
+  },
+  {
+    question: 'How can I request a new browser?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?'
+  },
+  {
+    question: 'Is there a mobile app?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?'
+  },
+  {
+    question: 'What about other Chromium browsers?',
+    answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?.'
+  },
+];

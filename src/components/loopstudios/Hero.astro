@@ -2,31 +2,22 @@
 import Nav from "./Nav.astro";
 
 const loopstudios_url = import.meta.env.LOOPSTUDIOS;
+const bgMobile = `url(${loopstudios_url}/mobile/image-hero.webp)`;
+const bgDesktop = `url(${loopstudios_url}/desktop/image-hero.webp)`;
 ---
 
-<div id="hero" class="relative h-screen md:h-[95vh]">
-  <!-- mobile-background -->
-  <img
-    alt="Hero Mobile"
-    class="sm:hidden absolute -z-10 top-0 left-0 w-full h-screen object-cover object-center"
-    src={ `${loopstudios_url}/mobile/image-hero.jpg` }
-  >
-
-  <!-- desktop-background -->
-  <img
-    alt="Hero Desktop"
-    class="hidden sm:block absolute -z-10 top-0 left-0 w-full h-screen object-cover object-center md:h-[95vh]"
-    src={ `${loopstudios_url}/desktop/image-hero.jpg` }
-  >
+<div id="hero">
 
   <!-- hero-overlay -->
-  <section class="pt-12 container-md text-white flex flex-col h-full">
+  <div class="py-12 container-md text-white flex flex-col h-full">
 
     <!-- Header -->
     <header class="flex flex-row justify-between items-center">
       <!-- Logo -->
       <a href="/">
-        <img src={ `${loopstudios_url}/logo.svg` } alt="">
+        <div class="w-[192px] h-[32px]">
+          <img src={ `${loopstudios_url}/logo.svg` } alt="Loopstudios logo">
+        </div>
       </a>
 
       <!-- Navigation -->
@@ -40,10 +31,27 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
     </header>
 
     <!-- Branding -->
-    <div class="grow flex flex-col items-start justify-center">
-      <h1 class="border-2 uppercase leading-none p-4 md:p-8 text-[40px] sm:text-[55px] md:text-[65px] tracking-wider font-light ">
+    <div class="my-48 md:my-32 flex flex-col items-start justify-center">
+      <h1 class="border-2 uppercase leading-none p-5 md:px-12 md:py-10 text-[40px] sm:text-[55px] md:text-6xl font-light ">
         IMPRESSIVE<br />EXPERIENCES<br />THAT DELIVER
       </h1>
     </div>
-  </section>
+  </div>
 </div>
+
+<style define:vars={{ bgMobile, bgDesktop }}>
+@media (max-width: 767px) {
+  #hero {
+    background-image: var(--bgMobile);
+  }
+}
+@media (min-width: 768px) {
+  #hero {
+    background-image: var(--bgDesktop);
+  }
+}
+#hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

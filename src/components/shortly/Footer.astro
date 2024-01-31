@@ -10,7 +10,9 @@ const shortly_url = import.meta.env.SHORTLY;
     <!-- Logo -->
     <section>
       <a href="/">
-        <img alt="logo" src={ `${ shortly_url }/logo.svg` }>
+        <div class="w-[121px] h-[33px]">
+          <img alt="logo" src={ `${ shortly_url }/logo.svg` }>
+        </div>
       </a>
     </section>
 
@@ -41,19 +43,27 @@ const shortly_url = import.meta.env.SHORTLY;
 
     <!-- Social media -->
     <section>
-      <div class="flex flex-row gap-5">
-        <img class="icon" src={ `${ shortly_url }/icon-facebook.svg` } alt="Facebook Icon">
-        <img class="icon" src={ `${ shortly_url }/icon-twitter.svg` } alt="Twitter Icon">
-        <img class="icon" src={ `${ shortly_url }/icon-pinterest.svg` } alt="Pinteres Icon">
-        <img class="icon" src={ `${ shortly_url }/icon-instagram.svg` } alt="Instagram Icon">
-      </div>
+      <ul class="flex flex-row gap-5 md:gap-4">
+        <li class="icon">
+          <img src={ `${ shortly_url }/icon-facebook.svg` } alt="Facebook Icon">
+        </li>
+        <li class="icon">
+          <img src={ `${ shortly_url }/icon-twitter.svg` } alt="Twitter Icon">
+        </li>
+        <li class="icon">
+          <img src={ `${ shortly_url }/icon-pinterest.svg` } alt="Pinteres Icon">
+        </li>
+        <li class="icon">
+          <img src={ `${ shortly_url }/icon-instagram.svg` } alt="Instagram Icon">
+        </li>
+      </ul>
     </section>
   </div>
 </footer>
 
 <style>
 .icon {
-  @apply cursor-pointer transition-all duration-200 hover:scale-105;
+  @apply cursor-pointer flex items-center justify-center transition-all duration-200 hover:scale-105;
 }
 
 .icon:hover {

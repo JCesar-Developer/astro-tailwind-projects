@@ -4,7 +4,7 @@ import Button from '../components/bookmark/Button.astro';
 import FeaturesSelector from "../components/bookmark/FeaturesSelector.vue";
 import DownloadCard from "../components/bookmark/DownloadCard.astro";
 
-import { features } from "../data/bookmark.data";
+import { features, faqs } from "../data/bookmark.data";
 
 const bookmark_url = import.meta.env.BOOKMARK;
 ---
@@ -41,7 +41,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
   </section>
 
   <!-- FEATURES-SECTION -->
-  <section class="mt-20">
+  <section id="features" class="mt-20">
     <div class="container-lg">
 
       <!-- section-header -->
@@ -80,7 +80,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
       </header>
 
       <!-- download-cards -->
-      <div class="relative container-md my-20 flex flex-col md:flex-row gap-8">
+      <div class="relative container-md my-20 flex flex-col gap-8 md:flex-row">
 
         <div class="w-full">
           <DownloadCard
@@ -90,7 +90,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
             version="Minimum version 62"
           />
         </div>
-        <div class="relative w-full top-5">
+        <div class="relative w-full md:top-5">
           <DownloadCard
             image={ `${bookmark_url}/logo-firefox.svg` }
             imageDescription="Firefox logo"
@@ -98,7 +98,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
             version="Minimum version 55"
           />
         </div>
-        <div class="relative w-full top-10">
+        <div class="relative w-full md:top-10">
           <DownloadCard
             image={ `${bookmark_url}/logo-opera.svg` }
             imageDescription="Opera logo"
@@ -108,6 +108,67 @@ const bookmark_url = import.meta.env.BOOKMARK;
         </div>
       </div>
 
+  </section>
+
+  <!-- FAQ-SECTION -->
+  <section id="faq" class="pt-36 px-6">
+    <!-- section-header -->
+    <header class="text-center space-y-6">
+      <h2 class="max-w-lg mx-auto text-4xl font-semibold">
+        Frequently Asked Questions
+      </h2>
+      <p class="max-w-md mx-auto text-[--grayishBlue]">
+        Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.
+      </p>
+    </header>
+
+    <!-- faqs -->
+    <div class="mt-12 my-32 mx-auto max-w-2xl divide-y">
+      {
+        faqs.map((faq) => (
+          // @ts-ignore
+          <details name="faq" class="py-4 group [&_svg]:duration-300 [&_svg]:open:-rotate-180 [&_svg]:open:text-[--softRed]">
+            <summary class="cursor-pointer flex flex-row items-center justify-between
+            text-gray-500 group-hover:text-[--softRed]">
+              <h5 class="text-md">
+                { faq.question }
+              </h5>
+              <span>
+                <svg class="" width="18" height="12">
+                  <path fill="none" stroke="currentColor" stroke-width="3" d="M1 1l8 8 8-8"></path>
+                </svg>
+              </span>
+            </summary>
+            <p class="text-justify mt-4 text-[--grayishBlue]">
+              { faq.answer }
+            </p>
+          </details>
+        ))
+      }
+    </div>
+
+  </section>
+
+  <!-- NEWSLETTER-SECTION -->
+  <section class="bg-[--softBlue] text-white">
+    <div class="py-24 flex flex-col items-center gap-8 text-center">
+      <p class="text-xl">
+        35,000+ ALREADY JOINED
+      </p>
+      <h1 class="max-w-lg text-4xl font-semibold">
+        Stay up-to-date with what we're doing
+      </h1>
+      <div class="flex flex-col md:flex-row gap-4">
+        <input
+          class="rounded-md px-5 py-3"
+          placeholder="Enter your email address" 
+          type="text"
+        >
+        <Button color="red" fontWeight="bold">
+          <p>Contact us</p>
+        </Button>
+      </div>
+    </div>
   </section>
 
 </Layout>

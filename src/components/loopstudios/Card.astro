@@ -12,26 +12,30 @@ interface Props {
 const { link, title } = Astro.props;
 ---
 
-<div aria-label="card" class="cursor-pointer relative group overflow-hidden">
-  <!-- image -->
-  <img 
-    class="md:hidden w-full h-full duration-200 group-hover:scale-110" 
-    alt={ title } 
-    src={ `${ mobile_image }${ link }` }
-  >
-  <img 
-    class="hidden md:block w-full h-full duration-200 group-hover:scale-110" 
-    alt={ title } 
-    src={ `${ desktop_image }${ link }` }
-  >
-  <!-- image-curtain -->
-  <div class="absolute top-0 bottom-0 left-0 right-0 
-  from-0% bg-gradient-to-t from-black top-10% 
-  group-hover:bg-none group-hover:bg-white/60"></div>
-  <!-- image-title -->
-  <h3 class="text-white text-[26px] absolute uppercase font-thin w-1/2
-  bottom-4 md:bottom-9 left-7 md:left-9
-  group-hover:text-black group-hover:scale-110 duration-200">
-    { title }
-  </h3>
-</div>
+<article class="cursor-pointer relative group overflow-hidden">
+  <div class="aspect-[5/2] md:aspect-[4/7]">
+    
+    <!-- image -->
+    <picture>
+      <source media="(min-width: 768px)" srcset={ `${ desktop_image }${ link }` } />
+      <img 
+        class="w-full h-full object-cover object-center duration-200 group-hover:scale-110" 
+        alt={ title } 
+        src={ `${ mobile_image }${ link }` }
+      >
+    </picture>
+  
+    <!-- image-curtain -->
+    <div class="absolute top-0 bottom-0 left-0 right-0 
+    from-0% bg-gradient-to-t from-black top-10% 
+    group-hover:bg-none group-hover:bg-white/60"></div>
+  
+    <!-- image-title -->
+    <h3 class="text-white josefine text-[26px] absolute uppercase font-light w-1/2
+    bottom-4 left-7 md:bottom-8 md:left-8
+    group-hover:text-black group-hover:scale-110 duration-200">
+      { title }
+    </h3>
+
+  </div>
+</article>

@@ -1,5 +1,6 @@
 ---
 import Header from '../components/bookmark/Header.astro';
+import Footer from '../components/bookmark/Footer.astro';
 
 interface Props {
 	title: string;
@@ -28,6 +29,8 @@ const { title } = Astro.props;
     <Header />
 
     <slot />
+
+    <Footer />
 	</body>
 
 </html>

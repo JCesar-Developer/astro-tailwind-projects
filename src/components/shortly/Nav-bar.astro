@@ -13,16 +13,26 @@ interface Item {
 
 const { items } = Astro.props;
 ---
-<div class="flex flex-row items-center md:grow">
-  <!-- Hamburguer btn -->
-  <input type="checkbox" id="nav-toggle" class="peer hidden">
+<script>
+const hamburguerContainer = document.getElementById('hamburger-container');
+const hamburguerBtn = document.getElementById('hamburger-btn');
+const mobileNavigation = document.getElementById('mobile-navigation');
 
-  <div class="md:hidden z-20">
+hamburguerContainer!.addEventListener('click', () => {
+  hamburguerBtn!.classList.toggle('active');
+  mobileNavigation!.classList.toggle('isOpen');
+});
+</script>
+
+<div class="flex flex-row items-center md:grow">
+  
+  <!-- Hamburguer btn -->
+  <button id="hamburger-container" class="md:hidden">
     <HamburgerBtn color='gray' />
-  </div>
+  </button>
 
   <!-- Mobile NavBar -->
-  <nav class="mt-8 hidden peer-checked:block duration-500 absolute top-full left-[50%] translate-x-[-50%] w-full px-6">
+  <nav id="mobile-navigation" class="absolute w-full px-6 mt-8 top-full left-[50%] translate-x-[-50%] hidden">
     <div class="bg-[--darkViolet] text-white font-bold text-lg text-center p-6 rounded-xl space-y-5 flex flex-col">
       <ul class="space-y-5">
         {
@@ -63,4 +73,8 @@ const { items } = Astro.props;
 .text-nav {
   @apply text-[16px] font-bold text-[--grayishViolet] cursor-pointer hover:text-black duration-100;
 }
+#mobile-navigation.isOpen {
+  display: block;
+}
+</style>
 </style>

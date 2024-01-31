@@ -13,40 +13,61 @@ interface Items {
 const { items } = Astro.props
 ---
 
-<input type="checkbox" id="nav-toggle" class="peer hidden">
+<script>
+const hamburguerContainer = document.getElementById('hamburger-container');
+const hamburguerBtn = document.getElementById('hamburger-btn');
+const mobileNavigation = document.getElementById('mobile-navigation');
 
-<!-- hamburguer-btn -->
-<div class="md:hidden z-20">
-  <HamburgerBtn color='white' />
+hamburguerContainer!.addEventListener('click', () => {
+  hamburguerBtn!.classList.toggle('active');
+  mobileNavigation!.classList.toggle('isOpen');
+});
+</script>
+
+<div>
+  <!-- hamburguer-btn -->
+  <button id="hamburger-container" class="relative md:hidden z-20">
+    <HamburgerBtn color='white' />
+  </button>
+
+  <!-- mobile-navigation -->
+  <nav id="mobile-navigation" class="absolute bg-black top-0 -left-full w-full h-screen 
+  md:hidden duration-300">
+    <ul class="mt-40 ml-10 space-y-2">
+      {
+        items && items.map( item => 
+        <li class="josefin uppercase text-lg hover:text-pink-500 font-light">
+          <a href={ item.link }>
+            { item.name }
+          </a>
+        </li>
+        )
+      }
+    </ul>
+  </nav>
+
+
+
+  <!-- desktop-navigation -->
+  <nav class="hidden md:block">
+    <ul class="flex flex-row gap-8 items-center">
+      {
+        items && items.map( item => 
+        <li class="alata font-bold flex flex-col items-center group">
+          <a href={ item.link }>
+            { item.name }
+          </a>
+          <div class="w-7 border-b border-white opacity-0 group-hover:opacity-100 duration-200"></div>
+        </li>
+        )
+      }
+    </ul>
+  </nav>
 </div>
 
-<!-- desktop-navigation -->
-<nav aria-label="desktop-navigation" class="hidden md:flex md:justify-center md:items-center">
-  <ul class="md:flex md:flex-row md:gap-8 md:items-center">
-    {
-      items && items.map( item => 
-      <li class="alata flex flex-col items-center group font-semibold">
-        <a href={ item.link }>
-          { item.name }
-        </a>
-        <div class="w-7 border-b border-white opacity-0 group-hover:opacity-100 duration-200"></div>
-      </li>
-      )
-    }
-  </ul>
-</nav>
-
-<!-- mobile-navigation -->
-<nav id="mobile-navigation" aria-label="mobile-navigation" class="-left-full peer-checked:block absolute bg-black top-0 duration-300 peer-checked:left-0 w-full h-screen">
-  <ul class="mt-40 ml-10 space-y-2">
-    {
-      items && items.map( item => 
-      <li class="josefin uppercase text-lg hover:text-pink-500 font-light">
-        <a href={ item.link }>
-          { item.name }
-        </a>
-      </li>
-      )
-    }
-  </ul>
-</nav>
+<style>
+#mobile-navigation.isOpen {
+  display: block;
+  left: 0;
+}
+</style>

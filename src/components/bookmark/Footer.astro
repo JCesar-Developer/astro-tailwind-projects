@@ -1,0 +1,51 @@
+---
+const bookmarkUrl = import.meta.env.BOOKMARK;
+---
+
+<footer class="bg-[--veryDarkBlue] py-16 md:px-12">
+  <div class="flex flex-col items-center gap-16 md:flex-row md:justify-between md:gap-0">
+    <!-- Navigation -->
+    <nav class="text-white">
+      <ul class="flex flex-col items-center gap-8 md:flex-row md:gap-12
+      [&>li]:duration-100 hover:[&>li]:text-[--softRed]">
+        <!-- Logo -->
+        <li>
+          <a href="/">
+            <img src={ `${bookmarkUrl}/logo-bookmark-footer.svg` } alt="Bookmark Logo">
+          </a>
+        </li>
+        <!-- Links -->
+        <li class="uppercase text-lg text-[--grayishBlue]"><a href="#features">Features</a></li>
+        <li class="uppercase text-lg text-[--grayishBlue]"><a href="#download">Download</a></li>
+        <li class="uppercase text-lg text-[--grayishBlue]"><a href="#faq">Faq</a></li>
+      </ul>
+    </nav>
+
+    <!-- Social-media -->
+    <div class="flex flex-row items-center gap-8">
+      <picture class="w-7 h-7 flex items-center justify-center">
+        <img 
+          class="icon-style"
+          src={ `${bookmarkUrl}/icon-facebook.svg` } 
+          alt="Icon facebook"
+        >
+      </picture>
+      <picture class="w-7 h-7 flex items-center justify-center">
+        <img 
+          class="icon-style"
+          src={ `${bookmarkUrl}/icon-twitter.svg` } 
+          alt="Icon twitter"
+        >
+      </picture>
+    </div>
+  </div>
+</footer>
+
+<style>
+.icon-style {
+  cursor: pointer;
+}
+.icon-style:hover {
+  filter: brightness(0) saturate(100%) invert(57%) sepia(35%) saturate(7351%) hue-rotate(330deg) brightness(108%) contrast(97%);
+}
+</style>

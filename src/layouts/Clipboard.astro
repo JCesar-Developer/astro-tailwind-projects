@@ -14,13 +14,15 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Clipboard landpage developed with Astro + Tailwind CSS"/>
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/clipboard/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="/clipboard/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/clipboard/fonts/BaiJamjuree-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/clipboard/fonts/BaiJamjuree-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/clipboard/fonts/BaiJamjuree-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
-		<title>{title}</title>
 	</head>
 	<body id="clipboard">
 		<slot />
@@ -30,8 +32,8 @@ const { title } = Astro.props;
 
 <style is:global>
 :root {
-  --primary-clipboard-text-color: #4C545D;
-  --secondary-clipboard-text-color: #9FABB2;
+  --primary-text-color: #4C545D;
+  --secondary-text-color: #9FABB2;
 }
 
 .b1 { border: solid 1px red; }
@@ -41,6 +43,46 @@ const { title } = Astro.props;
 .b5 { border: solid 1px orange; }
 .b5 { border: solid 1px purple; }
 
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url("/clipboard/fonts/BaiJamjuree-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+
 #clipboard {
   font-family: 'Bai Jamjuree', sans-serif;
 }
@@ -48,7 +90,7 @@ const { title } = Astro.props;
 #clipboard h1 {
   font-size: 2.8rem;
   font-weight: 600;
-  color: var(--primary-clipboard-text-color);
+  color: var(--primary-text-color);
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -58,7 +100,7 @@ const { title } = Astro.props;
 #clipboard h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-clipboard-text-color);
+  color: var(--primary-text-color);
 
   @media (max-width: 768px) {
     font-size: 1.25rem;
@@ -68,7 +110,7 @@ const { title } = Astro.props;
 #clipboard .p-lg {
   font-size: 1.5rem;
   font-weight: 400;
-  color: var(--secondary-clipboard-text-color);
+  color: var(--secondary-text-color);
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -78,7 +120,7 @@ const { title } = Astro.props;
 #clipboard .p-md {
   font-size: 1.2rem;
   font-weight: 400;
-  color: var(--secondary-clipboard-text-color);
+  color: var(--secondary-text-color);
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -88,7 +130,7 @@ const { title } = Astro.props;
 #clipboard .p-sm {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--secondary-clipboard-text-color);
+  color: var(--secondary-text-color);
 }
 
 @media (max-width: 768px) {

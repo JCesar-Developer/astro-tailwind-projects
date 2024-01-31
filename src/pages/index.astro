@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import AstroLogo from "../components/Astro-logo.astro";
 import ProyectCard from "../components/home/Proyect-card.astro";
+import LinkBar from "../components/home/LinkBar.astro";
 
 const home_url = import.meta.env.HME;
 const clipboard_url = import.meta.env.CLIPBOARD;
@@ -13,77 +14,125 @@ const bookmark_url = import.meta.env.BOOKMARK;
 ---
 
 <Layout title="Astro + Tailwind">
-  <main id="home" class="container-md relative flex flex-col items-center justify-center gap-20 my-48">
+  <main id="home" class="relative container-md my-20 flex flex-col items-center justify-center md:my-32">
 
-    <!-- Background-Logo -->
+    <!-- BG-LOGO -->
     <div class="fixed h-screen -z-10 top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--bg-primary] via-[--bg-secondary] to-[--bg-tertiary]">
       <AstroLogo />
     </div>
 
-    <!-- Hero-section -->
-    <section class="text-white text-center space-y-8">
-      <!-- title -->
+    <!-- HERO-SECTON -->
+    <section class="text-white text-center space-y-10 max-w-md mx-auto mb-10">
+
+      <!-- hero-title -->
       <h1 class="text-5xl font-bold [text-shadow:_#000_2px_2px_10px]">
         <span class="text-[--astro-color]">ASTRO</span>
         <span class="text-[--tailwind-color]">TAILWIND</span>
       </h1>
       
-      <!-- content -->
-      <div class="max-w-md space-y-8 m-auto">
-        
-        <p class="text-md leading-relaxed">
-          6 proyectos, completamente desarrollados con 
-          <span class="font-strong">ASTRO JS</span> + 
-          <span class="font-strong">TAILWIND CSS</span>. 
-          Cero <span class="font-strong">JAVASCRIPT</span>. 
-          Performaces optimizadas al 100%
-        </p>
-
-        <p class="text-xs text-[--accent-gray] italic">
-          Los diseños utilizados para los proyectos pertenecen a ZeroToMastery, y son de libre derecho de uso y publicación.
-        </p>
+      <!-- hero-content -->
+      <div class="space-y-6">
+        <h3 class="text-md leading-relaxed">
+          6 diseños, transformados en web landpages haciendo uso de
+          <span class="font-strong">HTML 5</span> + 
+          <span class="font-strong">TAILWIND CSS</span> + 
+          <span class="font-strong">ASTRO JS</span>.
+        </h3>
+  
+        <ul class="text-[--accent-gray] divide-y divide-gray-500
+        [&>li]:text-sm [&>li]:py-3">
+          <li>
+            <a href="#projects">
+              Velocidades de carga increíbles
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              Optimización en CEO
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              Diseño 100% responsive (Movil, Tablet y Ordenador)
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              Animaciones con CSS
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              Mínimo uso de <span class="font-strong">JAVASCRIPT</span>
+            </a>
+          </li>
+          <li>
+            <p class="text-xs italic">
+              Las landpages son de una única página y estas no contienen funcionalidades. Su objetivo es, simplemente, mostrar el resultado de una web 100% maqueteada, con las tecnologías mencionadas.
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- Proyects-section -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <a href={ clipboard_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-1.png`}
-          title="Clipboard"
-        />
-      </a>
-      <a href={ loopstudios_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-2.png`}
-          title="Loopstudios"
-        />
-      </a>
-      <a href={ shortly_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-3.png`}
-          title="Shortly"
-        />
-      </a>
-      <a href={ bento_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-4.png`}
-          title="Bento Quote"
-        />
-      </a>
-      <a href={ fylo_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-5.png`}
-          title="Fylo"
-        />
-      </a>
-      <a href={ bookmark_url }>
-        <ProyectCard 
-          image={ `${ home_url }/project-6.png`}
-          title="Bookmark"
-        />
-      </a>
+    <!-- GRID-PROJECTS-SECTION -->
+    <section id="projects" class="pt-28 space-y-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6
+      [&>a]:flex [&>a]:justify-center">
+        <a href={ clipboard_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-1.png`}
+            title="Clipboard"
+          />
+        </a>
+        <a href={ loopstudios_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-2.png`}
+            title="Loopstudios"
+          />
+        </a>
+        <a href={ shortly_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-3.png`}
+            title="Shortly"
+          />
+        </a>
+        <a href={ bento_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-4.png`}
+            title="Bento Quote"
+          />
+        </a>
+        <a href={ fylo_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-5.png`}
+            title="Fylo"
+          />
+        </a>
+        <a href={ bookmark_url } target="_blank">
+          <ProyectCard 
+            image={ `${ home_url }/project-6.png`}
+            title="Bookmark"
+          />
+        </a>
+      </div>
+
+      <!-- All rigths reserved -->
+      <article class="max-w-md mx-auto text-center divide-y divide-gray-500">
+        <p class="text-xs text-[--accent-gray] italic pt-4">
+          Los diseños empleados en la creación de las landpages pertenecen a 
+          <a class="underline" href="https://www.frontendmentor.io/" target="_blank">
+            frontendmentor.io
+          </a>.
+          Y están disponibles para libre uso y publicación.
+        </p>
+      </article>
+
     </section>
+
+    <div class="fixed bottom-20 left-1/2 -translate-x-1/2">
+      <LinkBar />
+    </div>
 
   </main>
 </Layout>

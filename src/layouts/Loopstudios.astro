@@ -15,21 +15,27 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Loopstudios landpages developed with Astro + Tailwind CSS" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/loopstudios/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-
 		<title>{title}</title>
+
+    <link rel="preconnect" href="/loopstudios/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/loopstudios/fonts/alata/Alata-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/loopstudios/fonts/josefin-sans/JosefinSans-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+
 	</head>
+
 	<body id="loopstudios">
     <Hero />
+    
     <main class="container-md">
       <slot />
     </main>
+
     <Footer />
 	</body>
+
 </html>
 
 <style is:global>
@@ -40,11 +46,35 @@ const { title } = Astro.props;
 .b5 { border: solid 1px orange; }
 .b5 { border: solid 1px purple; }
 
+@font-face {
+  font-family: 'Alata';
+  src: url("/loopstudios/fonts/alata/Alata-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url("/loopstudios/fonts/josefin-sans/JosefinSans-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url("/loopstudios/fonts/josefin-sans/JosefinSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url("/loopstudios/fonts/josefin-sans/JosefinSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+#loopstudios {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 #loopstudios .alata {
   font-family: 'Alata', sans-serif;
-}
-#loopstudios .josefin {
-  font-family: 'Josefin Sans', sans-serif;
 }
 
 #loopstudios .container-md {
@@ -52,6 +82,6 @@ const { title } = Astro.props;
 }
 
 #loopstudios h2 {
-  @apply josefin uppercase text-4xl md:text-5xl font-light;
+  @apply uppercase text-4xl md:text-5xl font-light;
 }
 </style>

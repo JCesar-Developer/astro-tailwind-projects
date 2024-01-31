@@ -12,58 +12,54 @@ const {
   wide = 'narrow',
 } = Astro.props
 ---
-
-<label for="nav-toggle" class="flex flex-col cursor-pointer ">
-  <div id="hamburger-btn" class:list={[
-    "flex flex-col gap-[5.5px] justify-center",
+<div id="hamburger-btn" class:list={[
+  "flex flex-col gap-[5.5px] justify-center cursor-pointer",
+  {
+    '[&>span]:bg-black': color === 'black',
+    '[&>span]:bg-white': color === 'white',
+    '[&>span]:bg-gray-500': color === 'gray',
+  }
+]}>
+  <span id="top" class:list={[
+    'hamburgerLine',
     {
-      '[&>span]:bg-black': color === 'black',
-      '[&>span]:bg-white': color === 'white',
-      '[&>span]:bg-gray-500': color === 'gray',
+      'h-[3px] wide': wide === 'wide',
+      'h-[2px] narrow': wide === 'narrow',
     }
-  ]}>
-    <span id="top" class:list={[
-      'hamburgerLine',
-      {
-        'h-[3px] wide': wide === 'wide',
-        'h-[2px] narrow': wide === 'narrow',
-      }
-    ]}></span>
-    <span id="middle" class:list={[
-      'hamburgerLine',
-      {
-        'h-[3px]': wide === 'wide',
-        'h-[2px]': wide === 'narrow',
-      }
-    ]}></span>
-    <span id="bottom" class:list={[
-      'hamburgerLine',
-      {
-        'h-[3px] wide': wide === 'wide',
-        'h-[2px] narrow': wide === 'narrow',
-      }
-    ]}></span>
-  </div>
-</label>
+  ]}></span>
+  <span id="middle" class:list={[
+    'hamburgerLine',
+    {
+      'h-[3px]': wide === 'wide',
+      'h-[2px]': wide === 'narrow',
+    }
+  ]}></span>
+  <span id="bottom" class:list={[
+    'hamburgerLine',
+    {
+      'h-[3px] wide': wide === 'wide',
+      'h-[2px] narrow': wide === 'narrow',
+    }
+  ]}></span>
+</div>
 
-<style is:global>
-  .hamburgerLine {
-    @apply w-6 rounded-full duration-200;
-  }
-
-  input[type=checkbox]:checked ~ * #top {
-    transform: rotate(45deg) translate(5px, 6px);
-  }
-  input[type=checkbox]:checked ~ * #top.wide {
-    transform: rotate(45deg) translate(5px, 7px);
-  }
-  input[type=checkbox]:checked ~ * #middle {
-    opacity: 0;
-  }
-  input[type=checkbox]:checked ~ * #bottom {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  input[type=checkbox]:checked ~ * #bottom.wide {
-    transform: rotate(-45deg) translate(5px, -6.5px);
-  }
+<style>
+.hamburgerLine {
+  @apply w-6 rounded-full duration-200;
+}
+#hamburger-btn.active #top {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+#hamburger-btn.active #top.wide {
+  transform: rotate(45deg) translate(5px, 7px);
+}
+#hamburger-btn.active #middle {
+  opacity: 0;
+}
+#hamburger-btn.active #bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+#hamburger-btn.active #bottom.wide {
+  transform: rotate(-45deg) translate(5px, -6.5px);
+}
 </style>

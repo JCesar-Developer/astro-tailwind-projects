@@ -6,29 +6,31 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
   <div class="container-md flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0">
 
     <!-- logo & navigation -->
-    <div class="text-white space-y-7 md:space-y-2">
+    <div class="text-white space-y-10 md:space-y-2">
       <!-- Logo -->
       <a href="/">
-        <img class="mx-auto md:mx-0" src={ `${ loopstudios_url }/logo.svg` } alt="Logo">
+        <div class="w-[192px] h-[32px] mx-auto md:mx-0">
+          <img class="w-full" src={ `${ loopstudios_url }/logo.svg` } alt="Logo">
+        </div>
       </a>
       
       <!-- Navigation -->
       <nav>
-        <ul class="flex flex-col items-center md:items-start md:flex-row gap-7 md:gap-5 [&>li]:font-medium">
+        <ul class="flex flex-col items-center md:items-start md:flex-row gap-7 md:gap-5">
           <li>
-            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">About</a>
+            <a href="#" class="alata nav-item">About</a>
           </li>
           <li>
-            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Careers</a>
+            <a href="#" class="alata nav-item">Careers</a>
           </li>
           <li>
-            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Events</a>
+            <a href="#" class="alata nav-item">Events</a>
           </li>
           <li>
-            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Products</a>
+            <a href="#" class="alata nav-item">Products</a>
           </li>
           <li>
-            <a href="#" class="text-sm tracking-wide hover:underline hover:underline-offset-8">Support</a>
+            <a href="#" class="alata nav-item">Support</a>
           </li>
         </ul>
       </nav>
@@ -37,28 +39,20 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
     <!-- social media & rights -->
     <div class="space-y-4">
       <div class="flex flex-row justify-center md:justify-start gap-4">
-        <img 
-          class="icon" 
-          src={ `${ loopstudios_url }/icon-facebook.svg` } 
-          alt="Facebook icon"
-        >
-        <img 
-          class="icon" 
-          src={ `${ loopstudios_url }/icon-twitter.svg` } 
-          alt="Twitter icon"
-        >
-        <img 
-          class="icon" 
-          src={ `${ loopstudios_url }/icon-pinterest.svg` } 
-          alt="Pinterest icon"
-        >
-        <img 
-          class="icon" 
-          src={ `${ loopstudios_url }/icon-instagram.svg` } 
-          alt="Instagram icon"
-        >
+        <div class="icon">
+          <img class="w-full" src={ `${ loopstudios_url }/icon-facebook.svg` } alt="Facebook icon">
+        </div>
+        <div class="icon">
+          <img class="w-full" src={ `${ loopstudios_url }/icon-twitter.svg` } alt="Twitter icon">
+        </div>
+        <div class="icon">
+          <img class="w-full" src={ `${ loopstudios_url }/icon-pinterest.svg` } alt="Pinterest icon">
+        </div>
+        <div class="icon">
+          <img class="w-full" src={ `${ loopstudios_url }/icon-instagram.svg` } alt="Instagram icon">
+        </div>
       </div>
-      <p class="text-gray-400 text-sm tracking-wider">© 2022 Loopstudios. All Rights Reserved</p>
+      <p class="josefin font-light text-gray-400 tracking-wider">© 2022 Loopstudios. All Rights Reserved</p>
     </div>
 
   </div>
@@ -66,6 +60,9 @@ const loopstudios_url = import.meta.env.LOOPSTUDIOS;
 
 <style>
 .icon {
-  @apply cursor-pointer w-6 transition-all duration-200 hover:scale-[0.85] hover:opacity-50;
+  @apply w-6 cursor-pointer flex items-center justify-center transition-all duration-200 hover:scale-[0.85] hover:opacity-50;
+}
+.nav-item {
+  @apply text-sm font-medium tracking-wide hover:underline hover:underline-offset-8;
 }
 </style>

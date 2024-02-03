@@ -7,18 +7,20 @@ interface Props {
 const { image, title } = Astro.props;
 ---
 
-<article class="border-2 border-[--border-color] max-w-xs">
-  <img 
-    class="w-full aspect-[2/1] object-cover object-top"
-    src={ image } 
-    alt={ title } 
-  />
-  <div class="p-4 bg-[--bg-color] space-y-2">
+<figure class="max-w-xs w-screen border-2 border-[--border-color]">
+  <div class="aspect-[2/1] w-full overflow-hidden">
+    <img 
+      class="object-cover object-top"
+      src={ image } 
+      alt={ title } 
+    />
+  </div>
+  <figcaption class="p-4 bg-[--bg-color] space-y-2">
     <h1 class="text-lg text-center font-semibold text-white tracking-wide">
       { title }
     </h1>
-  </div>
-</article>
+  </figcaption>
+</figure>
 
 <style>
 :root {

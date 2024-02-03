@@ -14,12 +14,11 @@ interface Item {
 const { items } = Astro.props;
 ---
 <script>
-const hamburguerContainer = document.getElementById('hamburger-container');
 const hamburguerBtn = document.getElementById('hamburger-btn');
 const mobileNavigation = document.getElementById('mobile-navigation');
 
-hamburguerContainer!.addEventListener('click', () => {
-  hamburguerBtn!.classList.toggle('active');
+hamburguerBtn?.addEventListener('click', () => {
+  hamburguerBtn.classList.toggle('active');
   mobileNavigation!.classList.toggle('isOpen');
 });
 </script>
@@ -27,9 +26,9 @@ hamburguerContainer!.addEventListener('click', () => {
 <div class="flex flex-row items-center md:grow">
   
   <!-- Hamburguer btn -->
-  <button id="hamburger-container" class="md:hidden">
+  <div class="md:hidden">
     <HamburgerBtn color='gray' />
-  </button>
+  </div>
 
   <!-- Mobile NavBar -->
   <nav id="mobile-navigation" class="absolute w-full px-6 mt-8 top-full left-[50%] translate-x-[-50%] hidden">

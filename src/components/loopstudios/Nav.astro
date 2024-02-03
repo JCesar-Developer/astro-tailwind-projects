@@ -14,21 +14,20 @@ const { items } = Astro.props
 ---
 
 <script>
-const hamburguerContainer = document.getElementById('hamburger-container');
 const hamburguerBtn = document.getElementById('hamburger-btn');
 const mobileNavigation = document.getElementById('mobile-navigation');
 
-hamburguerContainer!.addEventListener('click', () => {
-  hamburguerBtn!.classList.toggle('active');
-  mobileNavigation!.classList.toggle('isOpen');
+hamburguerBtn?.addEventListener('click', () => {
+  hamburguerBtn.classList.toggle('active');
+  mobileNavigation?.classList.toggle('isOpen');
 });
 </script>
 
 <div>
   <!-- hamburguer-btn -->
-  <button id="hamburger-container" class="relative md:hidden z-20">
+  <div id="hamburger-container" class="relative md:hidden z-20">
     <HamburgerBtn color='white' />
-  </button>
+  </div>
 
   <!-- mobile-navigation -->
   <nav id="mobile-navigation" class="absolute bg-black top-0 -left-full w-full h-screen 

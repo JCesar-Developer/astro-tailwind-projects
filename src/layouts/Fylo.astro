@@ -15,13 +15,15 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Fylo landpage developed with Astro + Tailwind CSS" />
 		<meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/fylo/favicon-32x32.png" />
 		<meta name="generator" content={Astro.generator} />
-	
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>{title}</title>
 
-    <!-- https://www.freecodecamp.org/news/how-to-build-a-dark-mode-switcher-with-tailwind-css-and-flowbite-->
+    <link rel="preload" href="/fylo/logo-dark-mode.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/fylo/fonts/raleway/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fylo/fonts/open-sans/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fylo/fonts/open-sans/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
     <script>
       if (
         localStorage.getItem('color-theme') === 'dark' ||
@@ -34,7 +36,6 @@ const { title } = Astro.props;
       }
     </script>
   
-    <title>{title}</title>
 	</head>
   
 	<body id="fylo" class="dark:bg-[--darkBlue] dark:text-white">
@@ -57,6 +58,29 @@ const { title } = Astro.props;
   --accentBlue: hsl(198, 60%, 50%);
   --lightRed: hsl(0, 100%, 63%);
 }
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/fylo/fonts/open-sans/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/fylo/fonts/open-sans/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url("/fylo/fonts/raleway/Raleway-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url("/fylo/fonts/raleway/Raleway-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 
 .b1 { border: solid 1px red; }
 .b2 { border: solid 1px blue; }

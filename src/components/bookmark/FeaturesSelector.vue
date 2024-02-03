@@ -32,10 +32,10 @@ export default {
 <template>
 
     <!-- feature-selector -->
-    <nav class="max-w-xl mx-auto md:border-b">
+    <nav class="max-w-xl mx-auto h-16 md:border-b md:h-auto">
       <div class="flex flex-row justify-center gap-5 md:justify-between md:gap-0">
   
-        <!-- feature-selector-icon -->
+        <!-- feature-selector-mobile-icon -->
         <button
           v-for="feature in features"
           class="feature-selector-icon md:hidden"
@@ -48,7 +48,7 @@ export default {
           >
         </button>
 
-        <!-- feature-selector-title -->
+        <!-- feature-selector-desktop-title -->
         <button 
           v-for="feature in features"
           class="hidden feature-selector-item md:block"
@@ -71,7 +71,7 @@ export default {
         md:flex-row lg:gap-28">
     
           <!-- feature-image -->
-          <div class="md:w-1/2">
+          <div class="w-full aspect-[7/6] flex items-center justify-center md:items-start md:justify-start md:w-1/2">
             <img :src="feature.content.image" :alt="feature.name">
           </div>
           

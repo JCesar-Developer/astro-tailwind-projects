@@ -13,9 +13,9 @@ const bookmarkUrl = import.meta.env.BOOKMARK;
 const cardDotsSeparator = `url(${bookmarkUrl}/bg-dots.svg)`;
 ---
 <article class="py-8 w-full rounded-lg flex flex-col items-center shadow-card">
-  <picture class="w-24 h-24">
+  <div class="w-24 h-24">
     <img src={ image } alt={ imageDescription }>
-  </picture>
+  </div>
 
   <div class="text-center mt-8 space-y-4">
     <p class="text-lg font-semibold">{ title }</p>

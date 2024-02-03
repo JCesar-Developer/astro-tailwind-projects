@@ -43,7 +43,7 @@ export interface Author {
 export const Testimonials: FyloTestimonial[] = [
   {
     author: {
-      avatar: `${fylo_url}/profile-1.jpg`,
+      avatar: `${fylo_url}/profile-1.webp`,
       name: 'Satish Patel',
       title: 'Founder & CEO, Huddle',
     },
@@ -51,7 +51,7 @@ export const Testimonials: FyloTestimonial[] = [
   },
   {
     author: {
-      avatar: `${fylo_url}/profile-2.jpg`,
+      avatar: `${fylo_url}/profile-2.webp`,
       name: 'Bruce McKenzie',
       title: 'Founder & CEO, Huddle 2',
     },
@@ -59,7 +59,7 @@ export const Testimonials: FyloTestimonial[] = [
   },
   {
     author: {
-      avatar: `${fylo_url}/profile-3.jpg`,
+      avatar: `${fylo_url}/profile-3.webp`,
       name: 'Iva Boyd',
       title: 'Founder & CEO, Huddle 3',
     },

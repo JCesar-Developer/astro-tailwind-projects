@@ -15,14 +15,21 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Bookmark website developed with Astro + Tailwind CSS" />
 		<meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/bookmark/favicon-32x32.png">
 		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+    <!-- Logo -->
+    <link rel="preload" href="/bookmark/logo-bookmark.svg" as="image" type="image/svg+xml">
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/bookmark/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/bookmark/fonts/Rubik-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/bookmark/fonts/Rubik-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
-		<title>{title}</title>
+    <!-- Main image -->
+    <link rel="preload" href="/bookmark/illustration-hero.svg" as="image" type="image/svg+xml">
+
 	</head>
 
 	<body id="bookmark">
@@ -50,7 +57,23 @@ const { title } = Astro.props;
 .b5 { border: solid 1px orange; }
 .b5 { border: solid 1px purple; }
 
-#bookmark * {
+@font-face {
+  font-family: 'Rubik';
+  src: url("/bookmark/fonts/Rubik-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url("/bookmark/fonts/Rubik-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url("/bookmark/fonts/Rubik-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+#bookmark {
   font-family: 'Rubik', sans-serif;
 }
 

@@ -13,12 +13,15 @@ const bookmark_url = import.meta.env.BOOKMARK;
   <!-- HERO-SECTION -->
   <section class="mt-20 md:mt-32">
     <div class="container-lg flex flex-col items-center md:flex-row">
+
       <!-- Hero-image -->
-      <picture class="md:w-1/2 md:order-2">
+      <div class="aspect-[7/5] w-full flex items-center justify-center
+      md:w-1/2 md:order-2">
         <img src={ `${bookmark_url}/illustration-hero.svg` } alt="Hero image">
-      </picture>
+      </div>
+      
       <!-- Hero-content -->
-      <div class="md:w-1/2">
+      <div class="mt-4 md:mt-0 md:w-1/2">
         <div class="space-y-8 lg:w-10/12 text-center md:text-left">
           <h1 class="font-semibold text-3xl md:text-6xl">
             A Simple Bookmark Manager
@@ -37,6 +40,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -70,7 +74,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
   <section id="download" class="mt-36">
 
       <!-- section-header -->
-      <header class="max-w-md mx-auto text-center space-y-4">
+      <header class="px-6 max-w-md mx-auto text-center space-y-4">
         <h2 class="text-3xl font-bold">
           Download the extension
         </h2>
@@ -133,11 +137,11 @@ const bookmark_url = import.meta.env.BOOKMARK;
               <h5 class="text-md">
                 { faq.question }
               </h5>
-              <span>
-                <svg class="" width="18" height="12">
-                  <path fill="none" stroke="currentColor" stroke-width="3" d="M1 1l8 8 8-8"></path>
-                </svg>
-              </span>
+
+              <!-- Icon arrow -->
+              <svg width="18" height="12">
+                <path fill="none" stroke="currentColor" stroke-width="3" d="M1 1l8 8 8-8"></path>
+              </svg>
             </summary>
             <p class="text-justify mt-4 text-[--grayishBlue]">
               { faq.answer }
@@ -155,7 +159,7 @@ const bookmark_url = import.meta.env.BOOKMARK;
       <p class="text-xl">
         35,000+ ALREADY JOINED
       </p>
-      <h1 class="max-w-lg text-4xl font-semibold">
+      <h1 class="px-6 max-w-lg text-4xl font-semibold">
         Stay up-to-date with what we're doing
       </h1>
       <div class="flex flex-col md:flex-row gap-4">

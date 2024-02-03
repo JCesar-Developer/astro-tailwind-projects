@@ -12,8 +12,8 @@ const {
   wide = 'narrow',
 } = Astro.props
 ---
-<div id="hamburger-btn" class:list={[
-  "flex flex-col gap-[5.5px] justify-center cursor-pointer",
+<button id="hamburger-btn" class:list={[
+  "hamburger-btn flex flex-col gap-[5.5px] justify-center cursor-pointer",
   {
     '[&>span]:bg-black': color === 'black',
     '[&>span]:bg-white': color === 'white',
@@ -41,7 +41,7 @@ const {
       'h-[2px] narrow': wide === 'narrow',
     }
   ]}></span>
-</div>
+</button>
 
 <style>
 .hamburgerLine {
